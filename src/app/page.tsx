@@ -269,7 +269,7 @@ export default function HomePage() {
                 display: 'inline-flex', alignItems: 'center', gap: '0.6rem'
               }}>
                 <span style={{ display: 'inline-block', width: '28px', height: '1px', background: 'var(--gold-light)' }} />
-                Biologa Nutrizionista · Roma
+                Biologa Nutrizionista · Milano
               </span>
             </div>
 
@@ -603,7 +603,7 @@ export default function HomePage() {
                       </div>
                       <div>
                         <p className="font-semibold text-gray-800">Studio Professionale</p>
-                        <p className="text-gray-600">Via del Benessere 123, Roma</p>
+                        <p className="text-gray-600">Via del Benessere 123, Milano</p>
                       </div>
                     </div>
 
@@ -895,7 +895,7 @@ export default function HomePage() {
                 Biologa Nutrizionista
               </div>
               <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.45)', lineHeight: 1.6 }}>
-                Percorsi nutrizionali personalizzati a Roma.
+                Percorsi nutrizionali personalizzati a Milano.
               </p>
             </div>
 
