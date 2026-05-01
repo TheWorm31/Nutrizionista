@@ -68,7 +68,7 @@ export async function getRealCalendarEvents(): Promise<CalendarSlot[]> {
     if (events.length > 0) {
       console.log('Sample events:')
       events.slice(0, 3).forEach(event => {
-        const title = event.summary || event.title || 'Evento senza titolo'
+        const title = event.summary || 'Evento senza titolo'
         console.log(`  - ${title}: ${event.start?.dateTime} to ${event.end?.dateTime}`)
       })
     }
@@ -128,7 +128,7 @@ function calculateAvailableSlots(events: any[]): CalendarSlot[] {
         const overlaps = (slotStart < eventEnd && slotEnd > eventStart)
         
         if (overlaps) {
-          const eventTitle = event.summary || event.title || 'Evento senza titolo'
+          const eventTitle = event.summary || 'Evento senza titolo'
           console.log(`  Slot ${slot.start}:00-${slot.end}:00 conflicts with ${eventTitle}`)
         }
         
