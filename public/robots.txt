@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://giadamarinaro.com/sitemap.xml
+
+# Crawl-delay per evitare sovraccarico
+Crawl-delay: 1
