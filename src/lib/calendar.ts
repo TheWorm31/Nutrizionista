@@ -1,5 +1,5 @@
 import { google } from 'googleapis'
-import { supabase } from './supabase'
+import { appendToSheet } from './sheets'
 
 // Initialize Google Calendar API
 const calendar = google.calendar({ version: 'v3' })
@@ -185,32 +185,7 @@ export async function syncWithGoogleCalendar(): Promise<boolean> {
 
     const events = response.data.items || []
 
-    // Process events and update database
-    for (const event of events) {
-      if (event.start?.dateTime && event.end?.dateTime) {
-        const startTime = new Date(event.start.dateTime)
-        const endTime = new Date(event.end.dateTime)
-        
-        // Check if this is a busy time (not available)
-        // Based on your calendar, you have scheduled activities, so these times are NOT available
-        const isAvailable = false // Your calendar shows you're busy with scheduled activities
-
-        // Upsert event in database
-        await supabase
-          .from('calendar_events')
-          .upsert({
-            id: event.id || undefined,
-            title: event.summary || 'Evento',
-            start: startTime.toISOString(),
-            end: endTime.toISOString(),
-            description: event.description,
-            is_available: isAvailable
-          }, {
-            onConflict: 'id'
-          })
-      }
-    }
-
+    // No longer caching in Supabase
     return true
   } catch (error) {
     console.error('Error syncing with Google Calendar:', error)
@@ -218,34 +193,70 @@ export async function syncWithGoogleCalendar(): Promise<boolean> {
   }
 }
 
-export async function bookAppointment(slotId: string, contactData: {
+export async function bookAppointment(slot: CalendarSlot, contactData: {
   nome: string
   cognome: string
   email: string
   telefono?: string
+  messaggio?: string
 }): Promise<boolean> {
   try {
-    // Mark slot as unavailable in database
-    const { error: updateError } = await supabase
-      .from('calendar_events')
-      .update({ 
-        is_available: false,
-        title: `Appuntamento - ${contactData.nome} ${contactData.cognome}`,
-        description: `Cliente: ${contactData.nome} ${contactData.cognome}\nEmail: ${contactData.email}\nTelefono: ${contactData.telefono || 'Non fornito'}`
-      })
-      .eq('id', slotId)
+    // Using 'primary' or the specific calendar ID
+    const calendarId = process.env.GOOGLE_CALENDAR_ID || 'primary'
+    
+    const auth = new google.auth.GoogleAuth({
+      credentials: {
+        client_email: process.env.GOOGLE_CALENDAR_CLIENT_EMAIL,
+        private_key: process.env.GOOGLE_CALENDAR_PRIVATE_KEY?.replace(/\\n/g, '\n'),
+      },
+      scopes: [
+        'https://www.googleapis.com/auth/calendar.events',
+        'https://www.googleapis.com/auth/spreadsheets'
+      ],
+    })
 
-    if (updateError) {
-      console.error('Error booking appointment:', updateError)
-      return false
+    const calendar = google.calendar({ version: 'v3', auth })
+
+    // 1. Try to create Google Calendar Event (Non-blocking)
+    try {
+      await calendar.events.insert({
+        calendarId: calendarId,
+        requestBody: {
+          summary: `Prenotazione: ${contactData.nome} ${contactData.cognome}`,
+          description: `Cliente: ${contactData.nome} ${contactData.cognome}\nEmail: ${contactData.email}\nTelefono: ${contactData.telefono || 'Non fornito'}\n\nMessaggio: ${contactData.messaggio || 'Nessun messaggio'}`,
+          start: {
+            dateTime: new Date(slot.start).toISOString(),
+          },
+          end: {
+            dateTime: new Date(slot.end).toISOString(),
+          },
+          // Removed attendees to avoid "Domain-Wide Delegation" error
+        },
+      })
+      console.log('Google Calendar event created successfully')
+    } catch (calError: any) {
+      console.error('FAILED to create Google Calendar event:', calError.message)
+      if (calError.response) {
+        console.error('Calendar API Error Details:', JSON.stringify(calError.response.data, null, 2))
+      }
     }
 
-    // TODO: Add Google Calendar event creation here if needed
-    // This would require additional Google Calendar write permissions
+    // 2. Save appointment to Google Sheets
+    const timestamp = new Date().toLocaleString('it-IT', { timeZone: 'Europe/Rome' })
+    const success = await appendToSheet([
+      timestamp,
+      contactData.nome.trim(),
+      contactData.cognome.trim(),
+      contactData.email.trim().toLowerCase(),
+      contactData.telefono?.trim() || 'N/A',
+      contactData.messaggio || 'Nessun messaggio',
+      'PRENOTAZIONE',
+      new Date(slot.start).toLocaleString('it-IT')
+    ])
 
-    return true
-  } catch (error) {
-    console.error('Error booking appointment:', error)
+    return success
+  } catch (error: any) {
+    console.error('CRITICAL ERROR in bookAppointment:', error.message || error)
     return false
   }
 }
