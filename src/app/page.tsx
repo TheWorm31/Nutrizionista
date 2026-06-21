@@ -227,33 +227,33 @@ export default function HomePage() {
 
       <main>
         {/* Hero Section */}
-        <section id="home" className="relative flex items-center grain-overlay"
-          style={{ backgroundColor: 'var(--charcoal)', marginTop: '80px', minHeight: 'calc(100vh - 80px)' }}>
+        <section id="home" className="relative flex items-center grain-overlay hero-responsive"
+          style={{ marginTop: '80px', minHeight: 'calc(100vh - 80px)' }}>
 
-          {/* Background image */}
-          <div className="absolute inset-0 bg-cover bg-top"
+          {/* Background image — visible only on desktop */}
+          <div className="absolute inset-0 bg-cover bg-top hidden md:block"
             style={{ backgroundImage: "url('/immagini/hero-bg.jpg')" }}
             role="img" aria-label="Studio professionale della Dott.ssa Giada Marinaro" />
           
-          {/* Gradient overlay — richer than flat black */}
-          <div className="absolute inset-0" style={{
+          {/* Gradient overlay — visible only on desktop */}
+          <div className="absolute inset-0 hidden md:block" style={{
             background: 'linear-gradient(105deg, rgba(20,30,24,0.72) 0%, rgba(30,44,30,0.50) 55%, rgba(184,150,90,0.15) 100%)'
           }} />
 
           {/* Decorative blob shapes */}
           <div className="blob-animate absolute" style={{
             width: '480px', height: '480px', borderRadius: '60% 40% 70% 30% / 50% 60% 40% 70%',
-            background: 'radial-gradient(ellipse, rgba(74,46,90,0.35) 0%, transparent 70%)',
+            background: 'radial-gradient(ellipse, rgba(74,46,90,0.15) 0%, transparent 70%)',
             top: '10%', right: '8%', pointerEvents: 'none', zIndex: 1
           }} />
           <div className="blob-animate-delayed absolute" style={{
             width: '320px', height: '320px', borderRadius: '40% 60% 30% 70% / 60% 40% 70% 30%',
-            background: 'radial-gradient(ellipse, rgba(184,150,90,0.20) 0%, transparent 70%)',
+            background: 'radial-gradient(ellipse, rgba(184,150,90,0.15) 0%, transparent 70%)',
             bottom: '15%', right: '20%', pointerEvents: 'none', zIndex: 1
           }} />
 
           {/* Content */}
-          <div className="container mx-auto px-6 relative text-white text-center md:text-left"
+          <div className="container mx-auto px-6 relative text-center md:text-left"
             style={{ zIndex: 2 }}>
 
 
@@ -262,13 +262,13 @@ export default function HomePage() {
               <span style={{
                 fontFamily: 'var(--font-body)',
                 fontSize: '0.75rem',
-                fontWeight: 500,
+                fontWeight: 600,
                 letterSpacing: '0.14em',
                 textTransform: 'uppercase',
-                color: 'var(--gold-light)',
+                color: 'var(--hero-eyebrow)',
                 display: 'inline-flex', alignItems: 'center', gap: '0.6rem'
               }}>
-                <span style={{ display: 'inline-block', width: '28px', height: '1px', background: 'var(--gold-light)' }} />
+                <span style={{ display: 'inline-block', width: '28px', height: '1px', background: 'var(--hero-line)' }} />
                 Biologa Nutrizionista · Milano, Carugate
               </span>
             </div>
@@ -278,21 +278,21 @@ export default function HomePage() {
               fontSize: 'clamp(2.2rem, 4vw, 3.6rem)',
               fontWeight: 600,
               lineHeight: 1.1,
-              color: '#fff',
+              color: 'var(--hero-text)',
               maxWidth: '24ch',
               marginBottom: '1.5rem'
             }}>
               Nessuna dieta standard, nessun giudizio. Solo un percorso costruito intorno a te. {' '}
-              <em style={{ fontStyle: 'italic', color: 'var(--gold-light)' }}>
+              <em style={{ fontStyle: 'italic', color: 'var(--hero-em)' }}>
                 Ogni storia è diversa. Per questo ogni percorso nutrizionale deve esserlo. 
               </em>
             </h1>
 
             <p className="hero-sub" style={{
               fontSize: 'clamp(1rem, 1.8vw, 1.2rem)',
-              fontWeight: 300,
+              fontWeight: 400,
               lineHeight: 1.75,
-              color: 'rgba(255,255,255,0.78)',
+              color: 'var(--hero-sub)',
               maxWidth: '50ch',
               marginBottom: '2.5rem'
             }}>
@@ -301,9 +301,10 @@ export default function HomePage() {
             </p>
 
             <div className="hero-cta" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-              <a href="#contatti" className="btn-secondary">Inizia il tuo percorso</a>
+              <a href="#contatti" className="btn-primary md:hidden">Inizia il tuo percorso</a>
+              <a href="#contatti" className="btn-secondary hidden md:inline-flex">Inizia il tuo percorso</a>
               <a href="#chi-sono" className="btn-ghost" style={{
-                color: '#fff', borderColor: 'rgba(255,255,255,0.35)',
+                color: 'var(--hero-ghost-color)', borderColor: 'var(--hero-ghost-border)',
                 backdropFilter: 'blur(8px)'
               }}>
                 Scopri chi sono

@@ -723,3 +723,30 @@
 .PhoneInputInput:focus { box-shadow: none; }
 .PhoneInputInput::placeholder { color: var(--muted); }
 .PhoneInputCountryIcon { margin-right: 8px; }
+
+/* ============================================================
+   RESPONSIVE HERO SECTION (Mobile: Light Lilac, Desktop: Dark Image)
+   ============================================================ */
+.hero-responsive {
+  background-color: var(--plum-pale) !important;
+  --hero-text: var(--charcoal);
+  --hero-em: var(--gold);
+  --hero-sub: var(--muted);
+  --hero-eyebrow: var(--plum);
+  --hero-line: var(--plum);
+  --hero-ghost-color: var(--plum);
+  --hero-ghost-border: var(--plum);
+}
+
+@media (min-width: 768px) {
+  .hero-responsive {
+    background-color: var(--charcoal) !important;
+    --hero-text: #fff;
+    --hero-em: var(--gold-light);
+    --hero-sub: rgba(255,255,255,0.78);
+    --hero-eyebrow: var(--gold-light);
+    --hero-line: var(--gold-light);
+    --hero-ghost-color: #fff;
+    --hero-ghost-border: rgba(255,255,255,0.35);
+  }
+}
