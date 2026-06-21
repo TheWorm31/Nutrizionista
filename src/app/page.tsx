@@ -227,11 +227,11 @@ export default function HomePage() {
 
       <main>
         {/* Hero Section */}
-        <section id="home" className="relative min-h-screen flex items-center grain-overlay"
-          style={{ backgroundColor: 'var(--charcoal)' }}>
+        <section id="home" className="relative flex items-center grain-overlay"
+          style={{ backgroundColor: 'var(--charcoal)', marginTop: '80px', minHeight: 'calc(100vh - 80px)' }}>
 
           {/* Background image */}
-          <div className="absolute inset-0 bg-cover bg-center"
+          <div className="absolute inset-0 bg-cover bg-top"
             style={{ backgroundImage: "url('/immagini/hero-bg.jpg')" }}
             role="img" aria-label="Studio professionale della Dott.ssa Giada Marinaro" />
           
@@ -269,22 +269,22 @@ export default function HomePage() {
                 display: 'inline-flex', alignItems: 'center', gap: '0.6rem'
               }}>
                 <span style={{ display: 'inline-block', width: '28px', height: '1px', background: 'var(--gold-light)' }} />
-                Biologa Nutrizionista · Milano
+                Biologa Nutrizionista · Milano, Carugate
               </span>
             </div>
 
             <h1 className="hero-title" style={{
               fontFamily: 'var(--font-display)',
-              fontSize: 'clamp(2.4rem, 5.5vw, 5rem)',
+              fontSize: 'clamp(2.2rem, 4vw, 3.6rem)',
               fontWeight: 600,
               lineHeight: 1.1,
               color: '#fff',
-              maxWidth: '14ch',
+              maxWidth: '24ch',
               marginBottom: '1.5rem'
             }}>
-              Ritrova il tuo benessere,{' '}
+              Nessuna dieta standard, nessun giudizio. Solo un percorso costruito intorno a te. {' '}
               <em style={{ fontStyle: 'italic', color: 'var(--gold-light)' }}>
-                un pasto alla volta
+                Ogni storia è diversa. Per questo ogni percorso nutrizionale deve esserlo. 
               </em>
             </h1>
 
@@ -332,9 +332,9 @@ export default function HomePage() {
                   overflow: 'hidden',
                   aspectRatio: '4/5',
                   background: 'var(--cream-dark)',
-                  backgroundImage: "url('/immagini/giada-marinaro.jpg')",
+                  backgroundImage: "url('/immagini/image6.jpeg')",
                   backgroundSize: 'cover',
-                  backgroundPosition: 'center',
+                  backgroundPosition: 'top',
                   boxShadow: 'var(--shadow-xl)'
                 }} role="img" aria-label="Dott.ssa Giada Marinaro" />
                 {/* Gold accent border */}
@@ -386,17 +386,15 @@ export default function HomePage() {
                   lineHeight: 1.2,
                   marginBottom: '1.5rem'
                 }}>
-                  Piacere, sono{' '}
-                  <span className="text-gradient">Giada Marinaro</span>
+                  Prima di essere una <span className="text-gradient">professionista della nutrizione</span>, sono una persona che crede nell'importanza dell'<span className="text-gradient">equilibrio</span>.
                 </h2>
                 <p style={{ color: 'var(--muted)', marginBottom: '1rem', lineHeight: 1.75, fontSize: '1rem' }}>
-                  La mia passione è aiutare le persone a riscoprire un rapporto sano e gioioso con il cibo.
-                  Credo in un approccio empatico e scientifico, lontano da diete restrittive e privazioni.
+                  Piacere, sono Giada Marinaro. Sono una nutrizionista laureata in Scienze della Nutrizione, con una formazione orientata sia alla nutrizione clinica sia alla nutrizione sportiva.
+Nel mio percorso professionale ho scelto di approfondire il trattamento dei Disturbi del Comportamento Alimentare, specializzandomi presso il San Raffaele e collaborando all'interno di un'équipe multidisciplinare. Questa esperienza mi ha insegnato quanto sia importante considerare la persona nella sua complessità, andando oltre il semplice piano alimentare per costruire percorsi di cura basati sull'ascolto, sul rispetto e sulla collaborazione.
                 </p>
                 <p style={{ color: 'var(--muted)', marginBottom: '2rem', lineHeight: 1.75, fontSize: '1rem' }}>
-                  Come Biologa Nutrizionista, il mio obiettivo è fornirti gli strumenti per fare scelte alimentari
-                  consapevoli e sostenibili nel tempo, costruendo insieme un percorso che rispetti le tue esigenze,
-                  i tuoi gusti e il tuo stile di vita.
+                  Parallelamente, mi occupo di nutrizione sportiva, ambito nel quale ho conseguito la certificazione Project Invictus. Supporto atleti e persone attive che desiderano migliorare la propria performance, ottimizzare il recupero, modificare la composizione corporea o semplicemente imparare a nutrirsi in modo più consapevole in relazione ai propri obiettivi.
+La mia passione per lo sport nasce anche dall'esperienza personale: mi alleno regolarmente in sala pesi e conosco da vicino l'importanza di un'alimentazione che sostenga il benessere, la salute e la prestazione fisica.
                 </p>
                 <a href="#servizi" className="link-gold">
                   Scopri come posso aiutarti <span className="arrow-nudge">→</span>
@@ -418,10 +416,10 @@ export default function HomePage() {
                 fontSize: 'clamp(1.9rem, 3.5vw, 2.75rem)',
                 fontWeight: 600, color: 'var(--charcoal)', marginBottom: '1rem'
               }}>
-                Un percorso su misura per te
+                Prima della dieta, la persona
               </h2>
               <p style={{ color: 'var(--muted)', maxWidth: '46ch', margin: '0 auto', fontSize: '1rem', lineHeight: 1.75 }}>
-                Ogni percorso è unico, come te. Ecco come lavoreremo insieme, passo dopo passo.
+                Credo in una nutrizione personalizzata, fondata sulle evidenze scientifiche ma adattata alla realtà e alle esigenze di ogni persona. Il mio obiettivo è aiutarti a costruire abitudini sostenibili nel tempo, senza rigidità inutili, attraverso un percorso che metta al centro te, la tua storia e i tuoi obiettivi.
               </p>
             </div>
 
@@ -429,17 +427,17 @@ export default function HomePage() {
               {[
                 {
                   n: '01', title: 'Primo Incontro', delay: '',
-                  desc: 'Analizzeremo insieme le tue abitudini, obiettivi e storia. Una chiacchierata approfondita per conoscerci e porre le basi del percorso.',
+                  desc: 'Mi racconterai la tua storia. Analizzeremo insieme le tue abitudini, alimentari e non.',
                   icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                 },
                 {
                   n: '02', title: 'Piano Personalizzato', delay: 'reveal-delay-1',
-                  desc: 'Elaborerò un piano alimentare flessibile e sostenibile. Non una dieta, ma una guida concreta per il tuo benessere quotidiano.',
+                  desc: 'Piano alimentare flessibile e sostenibile, che tiene conto dei tuoi gusti e delle tue preferenze alimentari.',
                   icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                 },
                 {
                   n: '03', title: 'Supporto Continuo', delay: 'reveal-delay-2',
-                  desc: 'Ci incontreremo periodicamente per monitorare i progressi e adattare il percorso. Sarò al tuo fianco per sostenerti sempre.',
+                  desc: 'Monitoraggio progressi e adattamento percorso, insieme.',
                   icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                 },
               ].map(step => (
@@ -484,25 +482,31 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
                 {
                   title: 'Dimagrimento e Ricomposizione',
-                  desc: 'Percorsi mirati per perdere peso in modo sano e sostenibile, migliorando la composizione corporea e il benessere generale.',
+                  desc: 'Perdita peso in modo sostenibile.',
                   icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />,
                   delay: ''
                 },
                 {
                   title: 'Nutrizione Clinica',
-                  desc: 'Piani alimentari specifici per la gestione di condizioni patologiche accertate: diabete, ipertensione, disturbi gastrointestinali e altro.',
+                  desc: 'Supporto per patologie (diabete, ipertensione, ecc.)',
                   icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />,
                   delay: 'reveal-delay-1'
                 },
                 {
                   title: 'Nutrizione Sportiva',
-                  desc: 'Strategie alimentari per ottimizzare la performance sportiva, migliorare il recupero e raggiungere i tuoi obiettivi agonistici.',
+                  desc: 'Performance e recupero.',
                   icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />,
                   delay: 'reveal-delay-2'
+                },
+                {
+                  title: 'Nutrizione per disturbi del comportamento alimentare',
+                  desc: 'Ritrovare un equilibrio con l’alimentazione.',
+                  icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />,
+                  delay: 'reveal-delay-3'
                 },
               ].map(service => (
                 <div key={service.title} className={`service-card reveal ${service.delay}`}>
@@ -602,8 +606,14 @@ export default function HomePage() {
                         </svg>
                       </div>
                       <div>
-                        <p className="font-semibold text-gray-800">Studio Professionale</p>
-                        <p className="text-gray-600">Via del Benessere 123, Milano</p>
+                        <p className="font-semibold text-gray-800">Studio</p>
+                        <p className="text-gray-600">
+                          Studio di psicologia Michele Facci, Piazza Emilia 5, Milano 20129 
+                         <br></br>
+                          Osteopatia Brambilla, Via Garibaldi 23, Carugate 20061 (MI)
+                          <br></br>
+                          Nassar Fitness Boutique, Str. 6, Palazzo N 2, 20089 Rozzano (MI)
+                        </p>
                       </div>
                     </div>
 
@@ -615,7 +625,7 @@ export default function HomePage() {
                       </div>
                       <div>
                         <p className="font-semibold text-gray-800">Email</p>
-                        <a href="mailto:info@giadamarinaro.com" className="text-gray-600 hover:text-plum transition-colors">info@giadamarinaro.com</a>
+                        <a href="mailto:dottoressa.marinarog@gmail.com" className="text-gray-600 hover:text-plum transition-colors">dottoressa.marinarog@gmail.com</a>
                       </div>
                     </div>
 
@@ -627,7 +637,7 @@ export default function HomePage() {
                       </div>
                       <div>
                         <p className="font-semibold text-gray-800">Telefono</p>
-                        <a href="tel:+393331234567" className="text-gray-600 hover:text-plum transition-colors">+39 333 123 4567</a>
+                        <a href="tel:+393517134807" className="text-gray-600 hover:text-plum transition-colors">+39 351 713 4807</a>
                       </div>
                     </div>
                   </div>
@@ -850,8 +860,7 @@ export default function HomePage() {
                 lineHeight: 1.75, maxWidth: '56ch', marginBottom: '2rem',
                 position: 'relative', zIndex: 1
               }}>
-                Il mio format nasce dall'idea di rendere la sana alimentazione pratica e accessibile.
-                Su Instagram e TikTok ti mostro come preparare pasti equilibrati, nutrienti e gustosi.
+                <strong>Sta Schiscia</strong> è il mio spazio dedicato a chi ha poco tempo ma non vuole rinunciare a mangiare bene. Idee pratiche, ricette equilibrate e consigli nutrizionali per trasformare la classica "schiscetta" in un alleato del benessere. 
               </p>
 
               <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>

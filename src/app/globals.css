@@ -575,6 +575,7 @@
   @media (min-width: 1024px) {
     .lg\:px-8         { padding-left: 2rem; padding-right: 2rem; }
     .lg\:grid-cols-3  { grid-template-columns: repeat(3, minmax(0,1fr)); }
+    .lg\:grid-cols-4  { grid-template-columns: repeat(4, minmax(0,1fr)); }
   }
 
   /* ---- Reveal animations (Intersection Observer powered via JS) ---- */
