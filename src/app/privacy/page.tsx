@@ -23,7 +23,7 @@ export default function PrivacyPolicy() {
               </p>
               <div className="bg-gray-50 p-4 rounded-lg">
                 <p><strong>Dott.ssa Giada Marinaro</strong></p>
-                <p>Email: wizliza@gmail.com</p>
+                <p>Email: dottoressa.marinarog@gmail.com</p>
                 <p>Professione: Nutrizionista</p>
               </div>
             </section>
@@ -165,7 +165,7 @@ export default function PrivacyPolicy() {
                 Per esercitare i tuoi diritti o per qualsiasi domanda sulla privacy, contattaci:
               </p>
               <div className="bg-gray-50 p-4 rounded-lg">
-                <p><strong>Email:</strong> wizliza@gmail.com</p>
+                <p><strong>Email:</strong> dottoressa.marinarog@gmail.com</p>
                 <p><strong>Oggetto:</strong> Richiesta Privacy - GDPR</p>
               </div>
             </section>

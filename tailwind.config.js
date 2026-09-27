@@ -9,21 +9,21 @@ module.exports = {
     extend: {
       colors: {
         plum: {
-          DEFAULT: '#4A2E5A',
-          mid:     '#5D3A71',
-          light:   '#8A6D9E',
-          pale:    '#E9E3ED',
+          DEFAULT: '#9C4A2F', // Deep terracotta / burnt orange
+          mid:     '#833B23', // Terracotta hover state
+          light:   '#D98A6C', // Warm apricot / soft rust
+          pale:    '#F9EFEA', // Pale peach/mist white
         },
         gold: {
-          DEFAULT: '#C5A059',
-          light:   '#D4AF72',
-          pale:    '#EEE0C4',
+          DEFAULT: '#C29B53', // Warm grain gold
+          light:   '#D1AC6D', // Soft wheat gold
+          pale:    '#EBE0CD', // Pale sand
         },
-        charcoal: '#1A121F',
-        ivory: '#FAF7F2',
+        charcoal: '#261C18', // Dark chocolate charcoal
+        ivory: '#FAF8F5', // Warm linen off-white
         cream: {
-          DEFAULT: '#F2EDE4',
-          dark: '#E8E0D4',
+          DEFAULT: '#F6EFEA', // Light peach-cream
+          dark: '#EADCD0', // Muted sand-cream
         },
         primary: {
           50: '#f0f9f4',

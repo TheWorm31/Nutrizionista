@@ -14,22 +14,22 @@
 
 
 :root {
-  /* Core palette */
-  --ivory:        #FAF7F2;
-  --cream:        #F2EDE4;
-  --cream-dark:   #E8E0D4;
-  --plum:         #4A2E5A;
-  --plum-mid:     #5D3A71;
-  --plum-light:   #8A6D9E;
-  --plum-pale:    #E9E3ED;
-  --gold:         #C5A059;
-  --gold-light:   #D4AF72;
-  --gold-pale:    #EEE0C4;
-  --charcoal:     #1A121F;
-  --ink:          #2A1F2D;
-  --muted:        #7B6A80;
-  --border:       #D8CFC4;
-  --border-plum:  rgba(74, 46, 90, 0.15);
+  /* Core palette — Nutrition/Wellness Terracotta-Burnt Orange Theme */
+  --ivory:        #FAF8F5; /* Warm linen off-white */
+  --cream:        #F6EFEA; /* Light peach-cream */
+  --cream-dark:   #EADCD0; /* Muted sand-cream */
+  --plum:         #9C4A2F; /* Deep terracotta / burnt orange */
+  --plum-mid:     #833B23; /* Terracotta hover state */
+  --plum-light:   #D98A6C; /* Warm apricot / soft rust */
+  --plum-pale:    #F9EFEA; /* Pale peach/mist white */
+  --gold:         #C29B53; /* Warm grain gold */
+  --gold-light:   #D1AC6D; /* Soft wheat gold */
+  --gold-pale:    #EBE0CD; /* Pale sand */
+  --charcoal:     #261C18; /* Dark chocolate charcoal */
+  --ink:          #332420; /* Dark terracotta ink */
+  --muted:        #7A6761; /* Muted slate clay */
+  --border:       #E2D6CA; /* Soft sand border */
+  --border-plum:  rgba(156, 74, 47, 0.15); /* Translucent terracotta border */
 
   /* Typography */
   --font-display: 'Playfair Display', Georgia, serif;
@@ -184,7 +184,7 @@
     text-decoration: none;
   }
   .btn-ghost:hover {
-    background-color: rgba(74,46,90,0.06);
+    background-color: rgba(156,74,47,0.06);
     border-color: var(--plum);
   }
 
@@ -276,7 +276,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse, rgba(74,46,90,0.35) 0%, transparent 70%);
+    background: radial-gradient(ellipse, rgba(156,74,47,0.35) 0%, transparent 70%);
     opacity: 0;
     transition: opacity var(--duration-base) var(--ease-out);
   }
@@ -392,7 +392,7 @@
   .field-input:focus {
     border-color: var(--plum-light);
     background-color: #fff;
-    box-shadow: 0 0 0 3px rgba(74,46,90,0.12);
+    box-shadow: 0 0 0 3px rgba(156,74,47,0.12);
   }
   .field-input::placeholder {
     color: var(--muted);
@@ -489,9 +489,9 @@
   .hover\:bg-green-700:hover  { background-color: var(--plum-mid); }
   .hover\:text-green-600:hover { color: var(--plum); }
   .hover\:text-green-400:hover { color: var(--plum-light); }
-  .focus\:ring-green-500:focus { --tw-ring-color: rgba(74,46,90,0.35); }
+  .focus\:ring-green-500:focus { --tw-ring-color: rgba(156,74,47,0.35); }
   .focus\:border-green-500:focus { border-color: var(--plum-light); }
-  .focus\:ring-green-500\/50:focus { --tw-ring-color: rgba(74,46,90,0.2); }
+  .focus\:ring-green-500\/50:focus { --tw-ring-color: rgba(156,74,47,0.2); }
   .from-green-50 {
     --tw-gradient-from: var(--ivory);
     --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(250,247,242,0));
@@ -595,17 +595,31 @@
 
   /* ---- Hero text shimmer on load ---- */
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(32px); }
+    from { opacity: 0; transform: translateY(24px); }
     to   { opacity: 1; transform: translateY(0); }
   }
   .hero-title {
     animation: fadeUp 0.9s var(--ease-out) 0.2s both;
   }
+  .hero-title-line {
+    display: block;
+    opacity: 0;
+    animation: fadeUp 0.9s var(--ease-out) both;
+  }
+  .hero-title-line-1 {
+    animation-delay: 0.25s;
+  }
+  .hero-title-line-2 {
+    animation-delay: 0.45s;
+  }
+  .hero-title-line-3 {
+    animation-delay: 0.65s;
+  }
   .hero-sub {
-    animation: fadeUp 0.9s var(--ease-out) 0.45s both;
+    animation: fadeUp 0.9s var(--ease-out) 0.85s both;
   }
   .hero-cta {
-    animation: fadeUp 0.9s var(--ease-out) 0.65s both;
+    animation: fadeUp 0.9s var(--ease-out) 1.05s both;
   }
 
   /* ---- Decorative organic blob ---- */

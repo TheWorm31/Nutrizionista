@@ -35,7 +35,7 @@ export async function getAvailableSlots(): Promise<CalendarSlot[]> {
 
 export async function getRealCalendarEvents(): Promise<CalendarSlot[]> {
   try {
-    const calendarId = 'wizliza@gmail.com'
+    const calendarId = process.env.GOOGLE_CALENDAR_ID || 'primary'
     
     if (!process.env.GOOGLE_CALENDAR_CLIENT_EMAIL || !process.env.GOOGLE_CALENDAR_PRIVATE_KEY) {
       console.log('Google Calendar credentials not configured')
@@ -157,7 +157,7 @@ function calculateAvailableSlots(events: any[]): CalendarSlot[] {
 export async function syncWithGoogleCalendar(): Promise<boolean> {
   try {
     // For demo purposes, we'll use wizliza@gmail.com as the calendar
-    const calendarId = 'wizliza@gmail.com'
+    const calendarId = process.env.GOOGLE_CALENDAR_ID || 'primary'
     
     if (!process.env.GOOGLE_CALENDAR_API_KEY) {
       console.log('Google Calendar API key not configured, skipping sync')
@@ -199,6 +199,10 @@ export async function bookAppointment(slot: CalendarSlot, contactData: {
   email: string
   telefono?: string
   messaggio?: string
+  visitType?: string
+  studio?: string
+  serviceName?: string
+  servicePrice?: string
 }): Promise<boolean> {
   try {
     // Using 'primary' or the specific calendar ID
@@ -217,20 +221,29 @@ export async function bookAppointment(slot: CalendarSlot, contactData: {
 
     const calendar = google.calendar({ version: 'v3', auth })
 
+    const studioName = contactData.studio === 'milano' ? 'Studio di psicologia Michele Facci (Milano)' : 'Osteopatia Brambilla (Carugate)'
+    const modalityLabel = `In Studio (${studioName})`
+    
+    const locationStr = contactData.studio === 'milano'
+      ? 'Piazza Emilia 5, Milano 20129 (Studio di psicologia Michele Facci)'
+      : 'Via Garibaldi 23, Carugate 20061 (Osteopatia Brambilla)'
+
+    const serviceStr = contactData.serviceName ? `${contactData.serviceName} (${contactData.servicePrice || ''})` : 'Non specificato'
+
     // 1. Try to create Google Calendar Event (Non-blocking)
     try {
       await calendar.events.insert({
         calendarId: calendarId,
         requestBody: {
-          summary: `Prenotazione: ${contactData.nome} ${contactData.cognome}`,
-          description: `Cliente: ${contactData.nome} ${contactData.cognome}\nEmail: ${contactData.email}\nTelefono: ${contactData.telefono || 'Non fornito'}\n\nMessaggio: ${contactData.messaggio || 'Nessun messaggio'}`,
+          summary: `Prenotazione: ${contactData.nome} ${contactData.cognome} - ${contactData.serviceName || 'Visita'}`,
+          location: locationStr,
+          description: `Cliente: ${contactData.nome} ${contactData.cognome}\nEmail: ${contactData.email}\nTelefono: ${contactData.telefono || 'Non fornito'}\nPrestazione: ${serviceStr}\nSede: ${modalityLabel}\n\nMessaggio: ${contactData.messaggio || 'Nessun messaggio'}`,
           start: {
             dateTime: new Date(slot.start).toISOString(),
           },
           end: {
             dateTime: new Date(slot.end).toISOString(),
           },
-          // Removed attendees to avoid "Domain-Wide Delegation" error
         },
       })
       console.log('Google Calendar event created successfully')
@@ -241,7 +254,7 @@ export async function bookAppointment(slot: CalendarSlot, contactData: {
       }
     }
 
-    // 2. Save appointment to Google Sheets
+    // 2. Save appointment to Google Sheets (including Modalità, Sede e Prestazione)
     const timestamp = new Date().toLocaleString('it-IT', { timeZone: 'Europe/Rome' })
     const success = await appendToSheet([
       timestamp,
@@ -251,7 +264,10 @@ export async function bookAppointment(slot: CalendarSlot, contactData: {
       contactData.telefono?.trim() || 'N/A',
       contactData.messaggio || 'Nessun messaggio',
       'PRENOTAZIONE',
-      new Date(slot.start).toLocaleString('it-IT')
+      new Date(slot.start).toLocaleString('it-IT'),
+      'In Presenza',
+      studioName,
+      serviceStr
     ])
 
     return success

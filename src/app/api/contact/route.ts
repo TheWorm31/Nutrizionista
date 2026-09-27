@@ -5,7 +5,7 @@ import { bookAppointment } from '@/lib/calendar'
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { nome, cognome, email, telefono, messaggio, selectedSlot } = body
+    const { nome, cognome, email, telefono, messaggio, selectedSlot, visitType, studio, serviceName, servicePrice } = body
 
     // Validate required fields
     if (!nome || !cognome || !email || (!messaggio && !selectedSlot)) {
@@ -34,7 +34,11 @@ export async function POST(request: NextRequest) {
         cognome: cognome.trim(), 
         email: email.trim().toLowerCase(), 
         telefono: telefono?.trim(),
-        messaggio: messaggio?.trim()
+        messaggio: messaggio?.trim(),
+        visitType: visitType,
+        studio: studio,
+        serviceName: serviceName,
+        servicePrice: servicePrice
       })
     } else {
       // Regular contact form submission
@@ -47,7 +51,9 @@ export async function POST(request: NextRequest) {
         telefono?.trim() || 'N/A',
         messaggio.trim(),
         'CONTATTO',
-        '' // Empty Appointment Date column
+        '', // Empty Appointment Date column
+        '', // Empty Modalità Visita
+        ''  // Empty Sede Studio
       ])
     }
 

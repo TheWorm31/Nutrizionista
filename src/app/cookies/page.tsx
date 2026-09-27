@@ -228,7 +228,7 @@ export default function CookiesPolicy() {
                 Per domande sui cookie o per esercitare i tuoi diritti, contattaci:
               </p>
               <div className="bg-gray-50 p-4 rounded-lg">
-                <p><strong>Email:</strong> wizliza@gmail.com</p>
+                <p><strong>Email:</strong> dottoressa.marinarog@gmail.com</p>
                 <p><strong>Oggetto:</strong> Richiesta Cookie - Privacy</p>
               </div>
             </section>

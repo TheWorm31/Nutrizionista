@@ -1,8 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getAvailableSlots, generateSampleSlots } from '@/lib/calendar'
+import { ensureSheetHeaders } from '@/lib/sheets'
 
 export async function GET(request: NextRequest) {
   try {
+    // Ensure cell K1 ("Prestazione") is written to Google Sheets on page load
+    ensureSheetHeaders().catch(() => {})
+
     // Try to get real slots from database
     let slots = await getAvailableSlots()
     
