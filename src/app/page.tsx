@@ -330,10 +330,17 @@ export default function HomePage() {
           </a>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center" style={{ gap: '1.5rem' }}>
+          <nav className="hidden md:flex items-center" style={{ gap: '1.25rem' }}>
             <a href="#chi-sono" className="nav-link">Chi Sono</a>
             <a href="#metodo" className="nav-link">Il Mio Metodo</a>
             <a href="#servizi" className="nav-link">Servizi</a>
+            <Link 
+              href="/nutrizione-clinica" 
+              className="px-3 py-1.5 rounded-full text-xs font-semibold text-[#1C6B4D] bg-[#1C6B4D]/10 hover:bg-[#1C6B4D]/20 transition-all border border-[#1C6B4D]/20 flex items-center gap-1"
+            >
+              <span>Clinica</span>
+              <span>🩺</span>
+            </Link>
             <Link 
               href="/nutrizione-sportiva" 
               className="px-3 py-1.5 rounded-full text-xs font-semibold text-[#0052FF] bg-[#0052FF]/10 hover:bg-[#0052FF]/20 transition-all border border-[#0052FF]/20 flex items-center gap-1"
@@ -345,11 +352,10 @@ export default function HomePage() {
               href="/disturbi-alimentari-dna" 
               className="px-3 py-1.5 rounded-full text-xs font-semibold text-plum bg-plum/10 hover:bg-plum/20 transition-all border border-plum/20 flex items-center gap-1"
             >
-              <span>Percorso DNA</span>
+              <span>DCA / DNA</span>
               <span>💜</span>
             </Link>
             <a href="#tariffe" className="nav-link">Tariffe</a>
-            <a href="#recensioni" className="nav-link">Recensioni</a>
             <a href="#prenota" className="btn-primary">Prenota una Visita</a>
           </nav>
 
@@ -380,6 +386,14 @@ export default function HomePage() {
               <a href="#metodo" className="nav-link" onClick={() => setIsMenuOpen(false)}>Il Mio Metodo</a>
               <a href="#servizi" className="nav-link" onClick={() => setIsMenuOpen(false)}>Servizi</a>
               <Link 
+                href="/nutrizione-clinica" 
+                className="font-semibold text-[#1C6B4D] bg-[#1C6B4D]/10 p-2.5 rounded-xl border border-[#1C6B4D]/20 flex items-center justify-between"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <span>Nutrizione Clinica & Patologie</span>
+                <span>🩺</span>
+              </Link>
+              <Link 
                 href="/nutrizione-sportiva" 
                 className="font-semibold text-[#0052FF] bg-[#0052FF]/10 p-2.5 rounded-xl border border-[#0052FF]/20 flex items-center justify-between"
                 onClick={() => setIsMenuOpen(false)}
@@ -396,7 +410,6 @@ export default function HomePage() {
                 <span>💜</span>
               </Link>
               <a href="#tariffe" className="nav-link" onClick={() => setIsMenuOpen(false)}>Tariffe</a>
-              <a href="#recensioni" className="nav-link" onClick={() => setIsMenuOpen(false)}>Recensioni</a>
               <a href="#prenota" className="btn-primary"
                 style={{ marginTop: '0.5rem', textAlign: 'center' }}
                 onClick={() => setIsMenuOpen(false)}>
@@ -726,10 +739,12 @@ La mia passione per lo sport nasce anche dall'esperienza personale: mi alleno re
                   delay: ''
                 },
                 {
-                  title: 'Nutrizione Clinica',
-                  desc: 'Supporto per patologie (diabete, ipertensione, ecc.)',
-                  icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />,
-                  delay: 'reveal-delay-1'
+                  title: 'Nutrizione Clinica & Patologie',
+                  desc: 'Supporto nutrizionale terapeutico per diabete, dislipidemia, sindrome metabolica e disturbi intestinali.',
+                  icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />,
+                  delay: 'reveal-delay-1',
+                  href: '/nutrizione-clinica',
+                  linkText: 'Scopri la nutrizione clinica 🩺'
                 },
                 {
                   title: 'Nutrizione Sportiva',
@@ -767,6 +782,8 @@ La mia passione per lo sport nasce anche dall'esperienza personale: mi alleno re
                     <Link href={service.href} className={`font-semibold text-xs py-2.5 px-3.5 rounded-xl flex items-center justify-center gap-1.5 transition-all border shadow-xs ${
                       service.href === '/disturbi-alimentari-dna' 
                         ? 'text-plum bg-plum/10 hover:bg-plum/20 border-plum/20' 
+                        : service.href === '/nutrizione-clinica'
+                        ? 'text-[#1C6B4D] bg-[#1C6B4D]/10 hover:bg-[#1C6B4D]/20 border-[#1C6B4D]/20'
                         : 'text-[#0052FF] bg-[#0052FF]/10 hover:bg-[#0052FF]/20 border-[#0052FF]/20'
                     }`}>
                       <span>{service.linkText}</span> <span className="arrow-nudge">→</span>

@@ -120,6 +120,15 @@ export default function PricingSection({ onSelectService }: PricingSectionProps)
 
               {/* Action Button */}
               <div className="pt-4 border-t border-gray-100 space-y-2">
+                {service.id === 'prima-visita' && (
+                  <Link
+                    href="/nutrizione-clinica"
+                    className="w-full py-2.5 px-3 rounded-xl font-semibold text-xs text-white bg-[#1C6B4D] hover:bg-[#124D36] transition-all flex items-center justify-center gap-1.5 shadow-sm"
+                  >
+                    <span>🩺 Scopri la Nutrizione Clinica</span>
+                    <span>→</span>
+                  </Link>
+                )}
                 {service.id === 'nutrizione-sportiva' && (
                   <Link
                     href="/nutrizione-sportiva"
