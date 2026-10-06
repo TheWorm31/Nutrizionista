@@ -27,11 +27,11 @@ export default function NutrizioneClinicaPage() {
   }, [])
 
   return (
-    <div className="bg-white min-h-screen text-gray-800">
+    <div className="bg-[#FAF8F5] min-h-screen text-[var(--ink)]">
       
       {/* Header */}
-      <header className="bg-white/90 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-sm transition-all duration-300"
-        style={{ borderBottom: '1px solid rgba(28, 107, 77, 0.15)' }}>
+      <header className="bg-white/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-sm transition-all duration-300"
+        style={{ borderBottom: '1px solid var(--border)' }}>
         <div className="container mx-auto px-6 py-4 flex justify-between items-center">
           
           {/* Logo */}
@@ -48,10 +48,10 @@ export default function NutrizioneClinicaPage() {
             <span style={{
               display: 'block',
               fontSize: '0.65rem',
-              fontWeight: 500,
+              fontWeight: 400,
               letterSpacing: '0.14em',
               textTransform: 'uppercase',
-              color: '#1C6B4D',
+              color: 'var(--gold)',
               marginTop: '-2px'
             }}>
               Biologa Nutrizionista · Nutrizione Clinica
@@ -59,44 +59,24 @@ export default function NutrizioneClinicaPage() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center" style={{ gap: '1.25rem' }}>
+          <nav className="hidden md:flex items-center" style={{ gap: '2rem' }}>
             <Link href="/" className="nav-link">Home</Link>
             <Link href="/#chi-sono" className="nav-link">Chi Sono</Link>
+            <Link href="/#metodo" className="nav-link">Il Mio Metodo</Link>
             <Link href="/#servizi" className="nav-link">Servizi</Link>
-            <Link 
-              href="/nutrizione-clinica" 
-              className="px-3 py-1.5 rounded-full text-xs font-semibold text-white bg-[#1C6B4D] hover:bg-[#15533B] transition-all shadow-xs"
-            >
-              Nutrizione Clinica 🩺
-            </Link>
-            <Link 
-              href="/nutrizione-sportiva" 
-              className="px-3 py-1.5 rounded-full text-xs font-semibold text-[#0052FF] bg-[#0052FF]/10 hover:bg-[#0052FF]/20 transition-all border border-[#0052FF]/20 flex items-center gap-1"
-            >
-              <span>Sportiva ⚡</span>
-            </Link>
-            <Link 
-              href="/disturbi-alimentari-dna" 
-              className="px-3 py-1.5 rounded-full text-xs font-semibold text-plum bg-plum/10 hover:bg-plum/20 transition-all border border-plum/20 flex items-center gap-1"
-            >
-              <span>DCA / DNA 💜</span>
-            </Link>
             <Link href="/#tariffe" className="nav-link">Tariffe</Link>
-            <Link 
-              href="/#prenota" 
-              className="btn-primary"
-            >
-              Prenota una Visita
-            </Link>
+            <Link href="/#recensioni" className="nav-link">Recensioni</Link>
+            <Link href="/#prenota" className="btn-primary">Prenota una Visita</Link>
           </nav>
 
           {/* Mobile menu button */}
           <div className="md:hidden">
             <button 
-              className="text-[#1C6B4D]"
+              className="text-plum"
               aria-label="Apri menu di navigazione"
               aria-expanded={isMenuOpen}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
+              style={{ color: 'var(--plum)' }}
             >
               <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"
@@ -109,38 +89,17 @@ export default function NutrizioneClinicaPage() {
         {/* Mobile dropdown */}
         {isMenuOpen && (
           <div style={{
-            background: '#F2F8F5',
-            borderTop: '1px solid rgba(28, 107, 77, 0.15)',
+            background: 'var(--ivory)',
+            borderTop: '1px solid var(--border)',
             padding: '1.5rem 1.5rem 2rem'
           }}>
             <nav style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               <Link href="/" className="nav-link" onClick={() => setIsMenuOpen(false)}>Home</Link>
               <Link href="/#chi-sono" className="nav-link" onClick={() => setIsMenuOpen(false)}>Chi Sono</Link>
-              <Link 
-                href="/nutrizione-clinica" 
-                className="font-semibold text-white bg-[#1C6B4D] p-2.5 rounded-xl flex items-center justify-between shadow-xs"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <span>Nutrizione Clinica & Patologie</span>
-                <span>🩺</span>
-              </Link>
-              <Link 
-                href="/nutrizione-sportiva" 
-                className="font-semibold text-[#0052FF] bg-[#0052FF]/10 p-2.5 rounded-xl border border-[#0052FF]/20 flex items-center justify-between"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <span>Nutrizione Sportiva & Performance</span>
-                <span>⚡</span>
-              </Link>
-              <Link 
-                href="/disturbi-alimentari-dna" 
-                className="font-semibold text-plum bg-plum/10 p-2.5 rounded-xl border border-plum/20 flex items-center justify-between"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <span>Nutrizione per i DNA (DCA)</span>
-                <span>💜</span>
-              </Link>
+              <Link href="/#metodo" className="nav-link" onClick={() => setIsMenuOpen(false)}>Il Mio Metodo</Link>
+              <Link href="/#servizi" className="nav-link" onClick={() => setIsMenuOpen(false)}>Servizi</Link>
               <Link href="/#tariffe" className="nav-link" onClick={() => setIsMenuOpen(false)}>Tariffe</Link>
+              <Link href="/#recensioni" className="nav-link" onClick={() => setIsMenuOpen(false)}>Recensioni</Link>
               <Link 
                 href="/#prenota" 
                 className="btn-primary text-center"
@@ -155,33 +114,26 @@ export default function NutrizioneClinicaPage() {
 
 
       <main>
-        {/* HERO SECTION - CLINICAL & REASSURING */}
+        {/* HERO SECTION */}
         <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden"
-          style={{ background: 'linear-gradient(180deg, #EAF4F0 0%, #FFFFFF 100%)' }}>
+          style={{ background: 'linear-gradient(180deg, var(--cream) 0%, var(--ivory) 100%)' }}>
           
-          {/* Subtle Sage Green Glow */}
-          <div className="absolute top-10 right-10 w-96 h-96 rounded-full blur-3xl pointer-events-none opacity-20"
-            style={{ background: 'radial-gradient(circle, #1C6B4D 0%, transparent 70%)' }} />
-          <div className="absolute bottom-0 left-10 w-80 h-80 rounded-full blur-3xl pointer-events-none opacity-15"
-            style={{ background: 'radial-gradient(circle, #B8965A 0%, transparent 70%)' }} />
-
           <div className="container mx-auto px-6 relative z-10">
             <div className="grid lg:grid-cols-12 gap-12 items-center">
               
               {/* Text Left */}
               <div className="lg:col-span-7 space-y-6">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider text-[#1C6B4D] bg-[#1C6B4D]/10 border border-[#1C6B4D]/20">
-                  <span>🩺</span>
-                  <span>Alimentazione Terapeutica e Supporto Clinico</span>
-                </div>
+                <span className="eyebrow">
+                  Alimentazione Terapeutica e Supporto Clinico
+                </span>
 
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight text-gray-900"
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight text-[var(--charcoal)]"
                   style={{ fontFamily: 'var(--font-display)', letterSpacing: '-0.02em' }}>
                   Nutrizione Clinica.<br />
-                  <span className="text-[#1C6B4D]">Il cibo come strumento di cura.</span>
+                  <span className="text-gradient">Il cibo come strumento di cura.</span>
                 </h1>
 
-                <div className="space-y-4 text-base sm:text-lg text-gray-700 leading-relaxed max-w-2xl font-normal">
+                <div className="space-y-4 text-base sm:text-lg text-[var(--muted)] leading-relaxed max-w-2xl font-normal">
                   <p>
                     Quando la salute richiede attenzione, anche l'alimentazione diventa uno strumento terapeutico fondamentale. Che tu stia affrontando una patologia metabolica, cardiovascolare, gastrointestinale o qualsiasi altra condizione clinica, il cibo può davvero fare la differenza nel percorso di cura e nella qualità della tua vita quotidiana.
                   </p>
@@ -193,16 +145,15 @@ export default function NutrizioneClinicaPage() {
                 <div className="pt-4 flex flex-wrap gap-4 items-center">
                   <Link 
                     href="/#prenota" 
-                    className="px-7 py-3.5 rounded-xl font-semibold text-white shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02] flex items-center gap-2"
-                    style={{ background: 'linear-gradient(135deg, #1C6B4D 0%, #124D36 100%)' }}
+                    className="btn-primary"
                   >
                     <span>Prenota la tua visita in studio</span>
-                    <span>→</span>
+                    <span className="arrow-nudge">→</span>
                   </Link>
 
                   <a 
                     href="#patologie" 
-                    className="px-6 py-3.5 rounded-xl font-semibold text-[#1C6B4D] bg-[#1C6B4D]/10 hover:bg-[#1C6B4D]/15 transition-all duration-200 border border-[#1C6B4D]/20"
+                    className="btn-ghost"
                   >
                     Scopri le condizioni cliniche trattate ↓
                   </a>
@@ -219,14 +170,14 @@ export default function NutrizioneClinicaPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                   
-                  <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-[#1C6B4D]/20 shadow-xl">
+                  <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-[var(--border)] shadow-xl">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-[#1C6B4D] text-white flex items-center justify-center font-bold text-lg shrink-0">
-                        📋
+                      <div className="w-10 h-10 rounded-full bg-[var(--plum)] text-white flex items-center justify-center font-bold text-xs shrink-0">
+                        CLIN
                       </div>
                       <div>
-                        <div className="font-bold text-sm text-gray-900">Approccio Evidence-Based</div>
-                        <div className="text-xs text-gray-600">Collaborazione con medici curanti e specialisti</div>
+                        <div className="font-bold text-sm text-[var(--charcoal)]">Approccio Evidence-Based</div>
+                        <div className="text-xs text-[var(--muted)]">Collaborazione con medici curanti e specialisti</div>
                       </div>
                     </div>
                   </div>
@@ -244,13 +195,13 @@ export default function NutrizioneClinicaPage() {
             
             {/* Header Section */}
             <div className="text-center max-w-3xl mx-auto mb-16 reveal">
-              <span className="inline-block text-xs font-semibold uppercase tracking-wider text-[#1C6B4D] bg-[#1C6B4D]/10 px-3.5 py-1.5 rounded-full mb-3 border border-[#1C6B4D]/20">
+              <span className="eyebrow" style={{ justifyContent: 'center' }}>
                 Aree di Intervento Clinico
               </span>
-              <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 mb-4 font-display" style={{ fontFamily: 'var(--font-display)', letterSpacing: '-0.01em' }}>
+              <h2 className="text-3xl sm:text-4xl font-semibold text-[var(--charcoal)] mb-4" style={{ fontFamily: 'var(--font-display)', letterSpacing: '-0.01em' }}>
                 Piani nutrizionali personalizzati per la tua condizione
               </h2>
-              <p className="text-gray-600 text-base leading-relaxed">
+              <p className="text-[var(--muted)] text-base leading-relaxed">
                 Ogni patologia richiede protocolli specifici. Lavoriamo insieme per migliorare i parametri ematochimici e la qualità della vita.
               </p>
             </div>
@@ -259,22 +210,19 @@ export default function NutrizioneClinicaPage() {
             <div className="grid md:grid-cols-2 gap-8 items-stretch">
               
               {/* 1. DIABETE */}
-              <div className="reveal p-8 rounded-3xl bg-[#F4F9F6] border-2 border-[#1C6B4D]/20 hover:border-[#1C6B4D] transition-all duration-300 shadow-sm hover:shadow-xl flex flex-col justify-between group">
+              <div className="reveal p-8 rounded-3xl bg-[var(--ivory)] border border-[var(--border)] hover:border-[var(--plum)] transition-all duration-300 shadow-sm hover:shadow-xl flex flex-col justify-between group">
                 <div>
                   <div className="flex items-center justify-between mb-6">
-                    <div className="w-14 h-14 rounded-2xl bg-[#1C6B4D] text-white flex items-center justify-center text-2xl font-bold shadow-md group-hover:scale-110 transition-transform duration-300">
-                      🩸
-                    </div>
-                    <span className="text-xs font-semibold uppercase tracking-wider text-[#1C6B4D] bg-[#1C6B4D]/10 px-3 py-1 rounded-full border border-[#1C6B4D]/20">
+                    <span className="eyebrow">
                       Glicemia & Controllo Metabolico
                     </span>
                   </div>
 
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4 font-display" style={{ fontFamily: 'var(--font-display)' }}>
+                  <h3 className="text-2xl font-bold text-[var(--charcoal)] mb-4" style={{ fontFamily: 'var(--font-display)' }}>
                     Diabete e Prediabete
                   </h3>
 
-                  <div className="text-sm text-gray-700 leading-relaxed space-y-3 font-normal">
+                  <div className="text-sm text-[var(--muted)] leading-relaxed space-y-3 font-normal">
                     <p>
                       Che si tratti di diabete di tipo 1, di tipo 2 o di una condizione di prediabete appena diagnosticata, l'alimentazione è uno dei pilastri fondamentali per la gestione della glicemia e per la prevenzione delle complicanze a lungo termine. Non si tratta di eliminare drasticamente i carboidrati o di seguire schemi rigidi e demoralizzanti, ma di imparare a conoscere come i diversi alimenti influenzano la tua glicemia, per costruire pasti equilibrati che ti permettano di mantenere un buon controllo metabolico senza vivere il momento del pasto come una fonte di ansia costante.
                     </p>
@@ -284,34 +232,31 @@ export default function NutrizioneClinicaPage() {
                   </div>
                 </div>
 
-                <div className="mt-8 pt-4 border-t border-[#1C6B4D]/10">
+                <div className="mt-8 pt-4 border-t border-[var(--border)]">
                   <Link 
                     href="/#prenota" 
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-[#1C6B4D] hover:text-[#124D36] transition-colors"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--plum)] hover:text-[var(--plum-mid)] transition-colors"
                   >
                     <span>Prenota la visita per Diabete e Prediabete</span>
-                    <span>→</span>
+                    <span className="arrow-nudge">→</span>
                   </Link>
                 </div>
               </div>
 
               {/* 2. DISLIPIDEMIA */}
-              <div className="reveal p-8 rounded-3xl bg-[#F4F9F6] border-2 border-[#1C6B4D]/20 hover:border-[#1C6B4D] transition-all duration-300 shadow-sm hover:shadow-xl flex flex-col justify-between group">
+              <div className="reveal p-8 rounded-3xl bg-[var(--ivory)] border border-[var(--border)] hover:border-[var(--plum)] transition-all duration-300 shadow-sm hover:shadow-xl flex flex-col justify-between group">
                 <div>
                   <div className="flex items-center justify-between mb-6">
-                    <div className="w-14 h-14 rounded-2xl bg-[#1C6B4D] text-white flex items-center justify-center text-2xl font-bold shadow-md group-hover:scale-110 transition-transform duration-300">
-                      ❤️
-                    </div>
-                    <span className="text-xs font-semibold uppercase tracking-wider text-[#1C6B4D] bg-[#1C6B4D]/10 px-3 py-1 rounded-full border border-[#1C6B4D]/20">
+                    <span className="eyebrow">
                       Colesterolo & Trigliceridi
                     </span>
                   </div>
 
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4 font-display" style={{ fontFamily: 'var(--font-display)' }}>
+                  <h3 className="text-2xl font-bold text-[var(--charcoal)] mb-4" style={{ fontFamily: 'var(--font-display)' }}>
                     Dislipidemia
                   </h3>
 
-                  <div className="text-sm text-gray-700 leading-relaxed space-y-3 font-normal">
+                  <div className="text-sm text-[var(--muted)] leading-relaxed space-y-3 font-normal">
                     <p>
                       Quando i valori di colesterolo o trigliceridi risultano alterati, l'alimentazione rappresenta spesso il primo e più importante strumento di intervento, prima ancora — o insieme — a un'eventuale terapia farmacologica. Non tutti i grassi sono uguali, e non basta "mangiare meno grassi": capire quali fonti privilegiare e quali invece limitare fa davvero la differenza sui tuoi valori nel sangue.
                     </p>
@@ -321,34 +266,31 @@ export default function NutrizioneClinicaPage() {
                   </div>
                 </div>
 
-                <div className="mt-8 pt-4 border-t border-[#1C6B4D]/10">
+                <div className="mt-8 pt-4 border-t border-[var(--border)]">
                   <Link 
                     href="/#prenota" 
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-[#1C6B4D] hover:text-[#124D36] transition-colors"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--plum)] hover:text-[var(--plum-mid)] transition-colors"
                   >
                     <span>Prenota la visita per Dislipidemia</span>
-                    <span>→</span>
+                    <span className="arrow-nudge">→</span>
                   </Link>
                 </div>
               </div>
 
               {/* 3. SINDROME METABOLICA */}
-              <div className="reveal p-8 rounded-3xl bg-[#F4F9F6] border-2 border-[#1C6B4D]/20 hover:border-[#1C6B4D] transition-all duration-300 shadow-sm hover:shadow-xl flex flex-col justify-between group">
+              <div className="reveal p-8 rounded-3xl bg-[var(--ivory)] border border-[var(--border)] hover:border-[var(--plum)] transition-all duration-300 shadow-sm hover:shadow-xl flex flex-col justify-between group">
                 <div>
                   <div className="flex items-center justify-between mb-6">
-                    <div className="w-14 h-14 rounded-2xl bg-[#1C6B4D] text-white flex items-center justify-center text-2xl font-bold shadow-md group-hover:scale-110 transition-transform duration-300">
-                      ⚖️
-                    </div>
-                    <span className="text-xs font-semibold uppercase tracking-wider text-[#1C6B4D] bg-[#1C6B4D]/10 px-3 py-1 rounded-full border border-[#1C6B4D]/20">
+                    <span className="eyebrow">
                       Rischio Cardiovascolare Globale
                     </span>
                   </div>
 
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4 font-display" style={{ fontFamily: 'var(--font-display)' }}>
+                  <h3 className="text-2xl font-bold text-[var(--charcoal)] mb-4" style={{ fontFamily: 'var(--font-display)' }}>
                     Sindrome Metabolica
                   </h3>
 
-                  <div className="text-sm text-gray-700 leading-relaxed space-y-3 font-normal">
+                  <div className="text-sm text-[var(--muted)] leading-relaxed space-y-3 font-normal">
                     <p>
                       La sindrome metabolica, quella condizione in cui si combinano fattori come glicemia alterata, pressione arteriosa elevata, dislipidemia e accumulo di grasso addominale, richiede un approccio nutrizionale che tenga conto di tutti questi elementi insieme, e non isolatamente. È una condizione che, se non affrontata, aumenta in modo significativo il rischio cardiovascolare, ma che risponde molto bene a un cambiamento alimentare e dello stile di vita costruito con costanza.
                     </p>
@@ -358,53 +300,50 @@ export default function NutrizioneClinicaPage() {
                   </div>
                 </div>
 
-                <div className="mt-8 pt-4 border-t border-[#1C6B4D]/10">
+                <div className="mt-8 pt-4 border-t border-[var(--border)]">
                   <Link 
                     href="/#prenota" 
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-[#1C6B4D] hover:text-[#124D36] transition-colors"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--plum)] hover:text-[var(--plum-mid)] transition-colors"
                   >
                     <span>Prenota la visita per Sindrome Metabolica</span>
-                    <span>→</span>
+                    <span className="arrow-nudge">→</span>
                   </Link>
                 </div>
               </div>
 
               {/* 4. DISTURBI INTESTINALI */}
-              <div className="reveal p-8 rounded-3xl bg-[#F4F9F6] border-2 border-[#1C6B4D]/20 hover:border-[#1C6B4D] transition-all duration-300 shadow-sm hover:shadow-xl flex flex-col justify-between group">
+              <div className="reveal p-8 rounded-3xl bg-[var(--ivory)] border border-[var(--border)] hover:border-[var(--plum)] transition-all duration-300 shadow-sm hover:shadow-xl flex flex-col justify-between group">
                 <div>
                   <div className="flex items-center justify-between mb-6">
-                    <div className="w-14 h-14 rounded-2xl bg-[#1C6B4D] text-white flex items-center justify-center text-2xl font-bold shadow-md group-hover:scale-110 transition-transform duration-300">
-                      🌿
-                    </div>
-                    <span className="text-xs font-semibold uppercase tracking-wider text-[#1C6B4D] bg-[#1C6B4D]/10 px-3 py-1 rounded-full border border-[#1C6B4D]/20">
+                    <span className="eyebrow">
                       IBS, FODMAP & Microbiota
                     </span>
                   </div>
 
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4 font-display" style={{ fontFamily: 'var(--font-display)' }}>
+                  <h3 className="text-2xl font-bold text-[var(--charcoal)] mb-4" style={{ fontFamily: 'var(--font-display)' }}>
                     Disturbi Intestinali & Gastrointestinali
                   </h3>
 
-                  <div className="text-sm text-gray-700 leading-relaxed space-y-3 font-normal">
+                  <div className="text-sm text-[var(--muted)] leading-relaxed space-y-3 font-normal">
                     <p>
                       Gonfiore, dolore addominale, alterazioni dell'alvo, sindrome dell'intestino irritabile (IBS), malattie infiammatorie croniche intestinali o altre problematiche gastrointestinali possono influenzare pesantemente la qualità della vita quotidiana, e l'alimentazione gioca un ruolo centrale sia nella gestione dei sintomi che nel benessere generale dell'intestino.
                     </p>
                     <p>
                       Il mio approccio parte sempre dall'individuazione degli alimenti e delle abitudini che possono scatenare o peggiorare i tuoi sintomi, per poi costruire un piano alimentare personalizzato che, a seconda della tua condizione specifica, può prevedere protocolli come la dieta a basso contenuto di FODMAP, strategie di reintroduzione graduale degli alimenti, o percorsi mirati al riequilibrio del microbiota intestinale. Il lavoro viene sempre svolto in coordinamento con il tuo gastroenterologo, per garantire un approccio integrato e sicuro.
                     </p>
-                    <p className="font-semibold text-gray-900">
+                    <p className="font-semibold text-[var(--charcoal)]">
                       So quanto i disturbi intestinali possano condizionare non solo la vita fisica, ma anche quella sociale ed emotiva: l'obiettivo del percorso è proprio restituirti maggiore libertà e serenità, aiutandoti a individuare cosa il tuo intestino tollera bene, senza restrizioni superflue o eliminazioni non necessarie.
                     </p>
                   </div>
                 </div>
 
-                <div className="mt-8 pt-4 border-t border-[#1C6B4D]/10">
+                <div className="mt-8 pt-4 border-t border-[var(--border)]">
                   <Link 
                     href="/#prenota" 
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-[#1C6B4D] hover:text-[#124D36] transition-colors"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--plum)] hover:text-[var(--plum-mid)] transition-colors"
                   >
                     <span>Prenota la visita per Disturbi Intestinali</span>
-                    <span>→</span>
+                    <span className="arrow-nudge">→</span>
                   </Link>
                 </div>
               </div>
@@ -416,7 +355,7 @@ export default function NutrizioneClinicaPage() {
 
 
         {/* METHODOLOGY & MEDICAL COLLABORATION */}
-        <section className="py-24 bg-gradient-to-b from-white via-[#F2F8F5] to-white relative overflow-hidden">
+        <section className="py-24 bg-gradient-to-b from-white via-[var(--cream)] to-white relative overflow-hidden">
           <div className="container mx-auto px-6 relative z-10 space-y-16">
             
             <div className="grid lg:grid-cols-12 gap-12 items-center reveal">
@@ -431,14 +370,14 @@ export default function NutrizioneClinicaPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60" />
                   
-                  <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-[#1C6B4D]/20 shadow-xl">
+                  <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-[var(--border)] shadow-xl">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-[#1C6B4D] text-white flex items-center justify-center font-bold text-lg shrink-0">
-                        🩺
+                      <div className="w-10 h-10 rounded-full bg-[var(--plum)] text-white flex items-center justify-center font-bold text-xs shrink-0">
+                        MED
                       </div>
                       <div>
-                        <div className="font-bold text-sm text-gray-900">Analisi Clinica Approfondita</div>
-                        <div className="text-xs text-gray-600">Referti ematochimici e dialogo medico</div>
+                        <div className="font-bold text-sm text-[var(--charcoal)]">Analisi Clinica Approfondita</div>
+                        <div className="text-xs text-[var(--muted)]">Referti ematochimici e dialogo medico</div>
                       </div>
                     </div>
                   </div>
@@ -447,33 +386,33 @@ export default function NutrizioneClinicaPage() {
 
               {/* Text Right */}
               <div className="lg:col-span-7 space-y-6">
-                <span className="inline-block text-xs font-semibold uppercase tracking-wider text-[#1C6B4D] bg-[#1C6B4D]/10 px-3.5 py-1.5 rounded-full border border-[#1C6B4D]/20">
+                <span className="eyebrow">
                   Dialogo & Sostenibilità
                 </span>
 
-                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 font-display" style={{ fontFamily: 'var(--font-display)', letterSpacing: '-0.01em' }}>
+                <h2 className="text-3xl sm:text-4xl font-bold text-[var(--charcoal)] font-display" style={{ fontFamily: 'var(--font-display)', letterSpacing: '-0.01em' }}>
                   Un metodo fondato sull'ascolto e la collaborazione medica
                 </h2>
 
-                <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
+                <p className="text-base sm:text-lg text-[var(--muted)] leading-relaxed">
                   Ricevere una diagnosi non deve significare stravolgere la propria vita in modo punitivo. Nel mio studio a Milano o Carugate, analizziamo i tuoi esami ematochimici e la tua storia clinica per ritagliare una terapia nutrizionale su misura.
                 </p>
 
                 <div className="grid sm:grid-cols-2 gap-4 pt-2">
-                  <div className="p-4 rounded-2xl bg-white border border-[#1C6B4D]/15 shadow-sm space-y-2">
-                    <div className="font-bold text-[#1C6B4D] text-base flex items-center gap-2">
+                  <div className="p-5 rounded-2xl bg-white border border-[var(--border)] shadow-sm space-y-2">
+                    <div className="font-bold text-[var(--plum)] text-sm flex items-center gap-2">
                       <span>✓</span> Dialogo con il Curante
                     </div>
-                    <p className="text-xs text-gray-600 leading-relaxed">
+                    <p className="text-xs text-[var(--muted)] leading-relaxed">
                       Lavoro in costante raccordo con il tuo medico di medicina generale, diabetologo, cardiologo o gastroenterologo.
                     </p>
                   </div>
 
-                  <div className="p-4 rounded-2xl bg-white border border-[#1C6B4D]/15 shadow-sm space-y-2">
-                    <div className="font-bold text-[#1C6B4D] text-base flex items-center gap-2">
+                  <div className="p-5 rounded-2xl bg-white border border-[var(--border)] shadow-sm space-y-2">
+                    <div className="font-bold text-[var(--plum)] text-sm flex items-center gap-2">
                       <span>✓</span> Zero Terrorismo Alimentare
                     </div>
-                    <p className="text-xs text-gray-600 leading-relaxed">
+                    <p className="text-xs text-[var(--muted)] leading-relaxed">
                       Indicazioni pratiche e sostenibili per capire cosa puoi mangiare senza inutili rinunce o paura a tavola.
                     </p>
                   </div>
@@ -488,7 +427,7 @@ export default function NutrizioneClinicaPage() {
 
         {/* CALL TO ACTION BANNER */}
         <section className="py-16 relative overflow-hidden"
-          style={{ background: 'linear-gradient(135deg, #124D36 0%, #1C6B4D 50%, #0B3324 100%)' }}>
+          style={{ background: 'linear-gradient(135deg, var(--plum) 0%, var(--plum-mid) 100%)' }}>
           
           <div className="container mx-auto px-6 text-center text-white relative z-10 max-w-3xl">
             <span className="inline-block text-xs font-semibold uppercase tracking-wider bg-white/20 text-white px-3.5 py-1.5 rounded-full mb-4 backdrop-blur-sm border border-white/30">
@@ -506,7 +445,7 @@ export default function NutrizioneClinicaPage() {
             <div className="flex flex-wrap justify-center gap-4">
               <Link 
                 href="/#prenota" 
-                className="px-8 py-4 rounded-xl font-bold bg-white text-[#1C6B4D] shadow-2xl hover:bg-gray-100 transition-all duration-300 hover:scale-[1.03]"
+                className="px-8 py-4 rounded-xl font-bold bg-white text-[var(--plum)] shadow-2xl hover:bg-gray-100 transition-all duration-300 hover:scale-[1.03]"
               >
                 Prenota la Visita Clinica
               </Link>
@@ -539,7 +478,7 @@ export default function NutrizioneClinicaPage() {
               </div>
               <div style={{
                 fontSize: '0.65rem', fontWeight: 500, letterSpacing: '0.12em',
-                textTransform: 'uppercase', color: '#1C6B4D', marginBottom: '0.75rem'
+                textTransform: 'uppercase', color: 'var(--gold)', marginBottom: '0.75rem'
               }}>
                 Biologa Nutrizionista · Nutrizione Clinica
               </div>
@@ -560,9 +499,7 @@ export default function NutrizioneClinicaPage() {
                   ['/','Home'],
                   ['/#chi-sono','Chi Sono'],
                   ['/#metodo','Il Mio Metodo'],
-                  ['/nutrizione-clinica','Nutrizione Clinica 🩺'],
-                  ['/nutrizione-sportiva','Nutrizione Sportiva ⚡'],
-                  ['/disturbi-alimentari-dna','Nutrizione per i DNA 💜'],
+                  ['/#servizi','Servizi'],
                   ['/#tariffe','Tariffe'],
                   ['/#contatti','Contatti']
                 ].map(([href, label]) => (
@@ -571,7 +508,7 @@ export default function NutrizioneClinicaPage() {
                     textDecoration: 'none',
                     transition: 'color 200ms ease'
                   }}
-                  onMouseEnter={e => (e.currentTarget.style.color = '#1C6B4D')}
+                  onMouseEnter={e => (e.currentTarget.style.color = 'var(--gold)')}
                   onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.55)')}>
                     {label}
                   </Link>
@@ -611,7 +548,7 @@ export default function NutrizioneClinicaPage() {
                 textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)',
                 marginBottom: '1.25rem'
               }}>Dove Ricevo</h4>
-              <ul className="text-[#1C6B4D] space-y-2 text-xs">
+              <ul className="text-gold space-y-2 text-xs">
                 <li>
                   <strong className="text-white">Studio di psicologia Michele Facci</strong><br />
                   <span className="text-gray-400">Piazza Emilia 5, Milano 20129</span>

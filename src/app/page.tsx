@@ -330,32 +330,12 @@ export default function HomePage() {
           </a>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center" style={{ gap: '1.25rem' }}>
+          <nav className="hidden md:flex items-center" style={{ gap: '1.75rem' }}>
             <a href="#chi-sono" className="nav-link">Chi Sono</a>
             <a href="#metodo" className="nav-link">Il Mio Metodo</a>
             <a href="#servizi" className="nav-link">Servizi</a>
-            <Link 
-              href="/nutrizione-clinica" 
-              className="px-3 py-1.5 rounded-full text-xs font-semibold text-[#1C6B4D] bg-[#1C6B4D]/10 hover:bg-[#1C6B4D]/20 transition-all border border-[#1C6B4D]/20 flex items-center gap-1"
-            >
-              <span>Clinica</span>
-              <span>🩺</span>
-            </Link>
-            <Link 
-              href="/nutrizione-sportiva" 
-              className="px-3 py-1.5 rounded-full text-xs font-semibold text-[#0052FF] bg-[#0052FF]/10 hover:bg-[#0052FF]/20 transition-all border border-[#0052FF]/20 flex items-center gap-1"
-            >
-              <span>Sportiva</span>
-              <span>⚡</span>
-            </Link>
-            <Link 
-              href="/disturbi-alimentari-dna" 
-              className="px-3 py-1.5 rounded-full text-xs font-semibold text-plum bg-plum/10 hover:bg-plum/20 transition-all border border-plum/20 flex items-center gap-1"
-            >
-              <span>DCA / DNA</span>
-              <span>💜</span>
-            </Link>
             <a href="#tariffe" className="nav-link">Tariffe</a>
+            <a href="#recensioni" className="nav-link">Recensioni</a>
             <a href="#prenota" className="btn-primary">Prenota una Visita</a>
           </nav>
 
@@ -385,31 +365,8 @@ export default function HomePage() {
               <a href="#chi-sono" className="nav-link" onClick={() => setIsMenuOpen(false)}>Chi Sono</a>
               <a href="#metodo" className="nav-link" onClick={() => setIsMenuOpen(false)}>Il Mio Metodo</a>
               <a href="#servizi" className="nav-link" onClick={() => setIsMenuOpen(false)}>Servizi</a>
-              <Link 
-                href="/nutrizione-clinica" 
-                className="font-semibold text-[#1C6B4D] bg-[#1C6B4D]/10 p-2.5 rounded-xl border border-[#1C6B4D]/20 flex items-center justify-between"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <span>Nutrizione Clinica & Patologie</span>
-                <span>🩺</span>
-              </Link>
-              <Link 
-                href="/nutrizione-sportiva" 
-                className="font-semibold text-[#0052FF] bg-[#0052FF]/10 p-2.5 rounded-xl border border-[#0052FF]/20 flex items-center justify-between"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <span>Nutrizione Sportiva & Performance</span>
-                <span>⚡</span>
-              </Link>
-              <Link 
-                href="/disturbi-alimentari-dna" 
-                className="font-semibold text-plum bg-plum/10 p-2.5 rounded-xl border border-plum/20 flex items-center justify-between"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <span>Nutrizione per i DNA (DCA)</span>
-                <span>💜</span>
-              </Link>
               <a href="#tariffe" className="nav-link" onClick={() => setIsMenuOpen(false)}>Tariffe</a>
+              <a href="#recensioni" className="nav-link" onClick={() => setIsMenuOpen(false)}>Recensioni</a>
               <a href="#prenota" className="btn-primary"
                 style={{ marginTop: '0.5rem', textAlign: 'center' }}
                 onClick={() => setIsMenuOpen(false)}>
@@ -738,7 +695,7 @@ La mia passione per lo sport nasce anche dall'esperienza personale: mi alleno re
                   icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />,
                   delay: '',
                   href: '/dimagrimento-ricomposizione',
-                  linkText: 'Scopri il percorso peso ✨'
+                  linkText: 'Scopri il percorso peso'
                 },
                 {
                   title: 'Nutrizione Clinica & Patologie',
@@ -746,7 +703,7 @@ La mia passione per lo sport nasce anche dall'esperienza personale: mi alleno re
                   icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />,
                   delay: 'reveal-delay-1',
                   href: '/nutrizione-clinica',
-                  linkText: 'Scopri la nutrizione clinica 🩺'
+                  linkText: 'Scopri la nutrizione clinica'
                 },
                 {
                   title: 'Nutrizione Sportiva',
@@ -754,50 +711,44 @@ La mia passione per lo sport nasce anche dall'esperienza personale: mi alleno re
                   icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />,
                   delay: 'reveal-delay-2',
                   href: '/nutrizione-sportiva',
-                  linkText: 'Scopri i 4 percorsi sportivi ⚡'
+                  linkText: 'Scopri i percorsi sportivi'
                 },
                 {
-                  title: 'Nutrizione per i DNA (Disturbi Alimentari)',
-                  desc: 'Ritrovare un equilibrio con l’alimentazione attraverso un approccio accogliente e multidisciplinare.',
+                  title: 'Nutrizione per i DNA',
+                  desc: 'Ritrovare un equilibrio con l’alimentazione attraverso un approccio accogliente e multidisciplinare per i disturbi alimentari.',
                   icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />,
                   delay: 'reveal-delay-3',
                   href: '/disturbi-alimentari-dna',
-                  linkText: 'Scopri il percorso DNA 💜'
+                  linkText: 'Scopri il percorso DNA'
                 },
               ].map(service => (
-                <div key={service.title} className={`service-card reveal ${service.delay}`}>
-                  <div className="service-card-icon">
-                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      {service.icon}
-                    </svg>
+                <Link 
+                  key={service.title} 
+                  href={service.href}
+                  className={`service-card reveal ${service.delay} group flex flex-col justify-between cursor-pointer border border-[var(--border)] hover:border-[var(--plum)] transition-all duration-300 shadow-sm hover:shadow-lg bg-white p-7 rounded-3xl`}
+                  style={{ textDecoration: 'none' }}
+                >
+                  <div>
+                    <div className="service-card-icon mb-4">
+                      <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        {service.icon}
+                      </svg>
+                    </div>
+                    <h3 style={{
+                      fontFamily: 'var(--font-display)', fontWeight: 600,
+                      fontSize: '1.2rem', color: 'var(--charcoal)', marginBottom: '0.75rem', lineHeight: 1.3
+                    }}>
+                      {service.title}
+                    </h3>
+                    <p style={{ color: 'var(--muted)', fontSize: '0.92rem', lineHeight: 1.7, marginBottom: '1.75rem' }}>
+                      {service.desc}
+                    </p>
                   </div>
-                  <h3 style={{
-                    fontFamily: 'var(--font-display)', fontWeight: 600,
-                    fontSize: '1.15rem', color: 'var(--charcoal)', marginBottom: '0.75rem'
-                  }}>
-                    {service.title}
-                  </h3>
-                  <p style={{ color: 'var(--muted)', fontSize: '0.93rem', lineHeight: 1.7, flex: 1, marginBottom: '1.5rem' }}>
-                    {service.desc}
-                  </p>
-                  {service.href ? (
-                    <Link href={service.href} className={`font-semibold text-xs py-2.5 px-3.5 rounded-xl flex items-center justify-center gap-1.5 transition-all border shadow-xs ${
-                      service.href === '/disturbi-alimentari-dna' 
-                        ? 'text-plum bg-plum/10 hover:bg-plum/20 border-plum/20' 
-                        : service.href === '/nutrizione-clinica'
-                        ? 'text-[#1C6B4D] bg-[#1C6B4D]/10 hover:bg-[#1C6B4D]/20 border-[#1C6B4D]/20'
-                        : service.href === '/dimagrimento-ricomposizione'
-                        ? 'text-charcoal bg-gold/15 hover:bg-gold/25 border-gold/30'
-                        : 'text-[#0052FF] bg-[#0052FF]/10 hover:bg-[#0052FF]/20 border-[#0052FF]/20'
-                    }`}>
-                      <span>{service.linkText}</span> <span className="arrow-nudge">→</span>
-                    </Link>
-                  ) : (
-                    <a href="#contatti" className="link-gold">
-                      Richiedi una consulenza <span className="arrow-nudge">→</span>
-                    </a>
-                  )}
-                </div>
+                  <div className="font-semibold text-xs py-3 px-4 rounded-xl flex items-center justify-center gap-2 bg-[var(--ivory)] text-[var(--plum)] border border-[var(--border)] group-hover:bg-[var(--plum)] group-hover:text-white transition-all duration-300">
+                    <span>{service.linkText}</span>
+                    <span className="arrow-nudge">→</span>
+                  </div>
+                </Link>
               ))}
             </div>
           </div>

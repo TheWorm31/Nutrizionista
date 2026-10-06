@@ -123,27 +123,27 @@ export default function PricingSection({ onSelectService }: PricingSectionProps)
                 {service.id === 'prima-visita' && (
                   <Link
                     href="/nutrizione-clinica"
-                    className="w-full py-2.5 px-3 rounded-xl font-semibold text-xs text-white bg-[#1C6B4D] hover:bg-[#124D36] transition-all flex items-center justify-center gap-1.5 shadow-sm"
+                    className="w-full py-2.5 px-3 rounded-xl font-semibold text-xs text-[var(--plum)] bg-[var(--ivory)] hover:bg-[var(--plum)] hover:text-white border border-[var(--border)] transition-all flex items-center justify-center gap-1.5 shadow-xs"
                   >
-                    <span>🩺 Scopri la Nutrizione Clinica</span>
+                    <span>Scopri la Nutrizione Clinica</span>
                     <span>→</span>
                   </Link>
                 )}
                 {service.id === 'nutrizione-sportiva' && (
                   <Link
                     href="/nutrizione-sportiva"
-                    className="w-full py-2.5 px-3 rounded-xl font-semibold text-xs text-white bg-[#0052FF] hover:bg-[#003ECC] transition-all flex items-center justify-center gap-1.5 shadow-sm"
+                    className="w-full py-2.5 px-3 rounded-xl font-semibold text-xs text-[var(--plum)] bg-[var(--ivory)] hover:bg-[var(--plum)] hover:text-white border border-[var(--border)] transition-all flex items-center justify-center gap-1.5 shadow-xs"
                   >
-                    <span>⚡ Scopri i 4 Percorsi Sportivi</span>
+                    <span>Scopri i percorsi sportivi</span>
                     <span>→</span>
                   </Link>
                 )}
                 {service.id === 'dca-equilibrio' && (
                   <Link
                     href="/disturbi-alimentari-dna"
-                    className="w-full py-2.5 px-3 rounded-xl font-semibold text-xs text-white bg-plum hover:bg-plum-dark transition-all flex items-center justify-center gap-1.5 shadow-sm"
+                    className="w-full py-2.5 px-3 rounded-xl font-semibold text-xs text-[var(--plum)] bg-[var(--ivory)] hover:bg-[var(--plum)] hover:text-white border border-[var(--border)] transition-all flex items-center justify-center gap-1.5 shadow-xs"
                   >
-                    <span>💜 Scopri il Percorso DNA</span>
+                    <span>Scopri il percorso DNA</span>
                     <span>→</span>
                   </Link>
                 )}

@@ -27,11 +27,11 @@ export default function DimagrimentoRicomposizionePage() {
   }, [])
 
   return (
-    <div className="bg-white min-h-screen text-gray-800">
+    <div className="bg-[#FAF8F5] min-h-screen text-[var(--ink)]">
       
       {/* Header */}
-      <header className="bg-white/90 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-sm transition-all duration-300"
-        style={{ borderBottom: '1px solid rgba(184, 150, 90, 0.2)' }}>
+      <header className="bg-white/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-sm transition-all duration-300"
+        style={{ borderBottom: '1px solid var(--border)' }}>
         <div className="container mx-auto px-6 py-4 flex justify-between items-center">
           
           {/* Logo */}
@@ -48,7 +48,7 @@ export default function DimagrimentoRicomposizionePage() {
             <span style={{
               display: 'block',
               fontSize: '0.65rem',
-              fontWeight: 500,
+              fontWeight: 400,
               letterSpacing: '0.14em',
               textTransform: 'uppercase',
               color: 'var(--gold)',
@@ -59,48 +59,24 @@ export default function DimagrimentoRicomposizionePage() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center" style={{ gap: '1.25rem' }}>
+          <nav className="hidden md:flex items-center" style={{ gap: '2rem' }}>
             <Link href="/" className="nav-link">Home</Link>
             <Link href="/#chi-sono" className="nav-link">Chi Sono</Link>
-            <Link 
-              href="/dimagrimento-ricomposizione" 
-              className="px-3 py-1.5 rounded-full text-xs font-semibold text-white bg-gold hover:bg-gold-dark transition-all shadow-xs"
-            >
-              Dimagrimento & Peso ✨
-            </Link>
-            <Link 
-              href="/nutrizione-clinica" 
-              className="px-3 py-1.5 rounded-full text-xs font-semibold text-[#1C6B4D] bg-[#1C6B4D]/10 hover:bg-[#1C6B4D]/20 transition-all border border-[#1C6B4D]/20 flex items-center gap-1"
-            >
-              <span>Clinica 🩺</span>
-            </Link>
-            <Link 
-              href="/nutrizione-sportiva" 
-              className="px-3 py-1.5 rounded-full text-xs font-semibold text-[#0052FF] bg-[#0052FF]/10 hover:bg-[#0052FF]/20 transition-all border border-[#0052FF]/20 flex items-center gap-1"
-            >
-              <span>Sportiva ⚡</span>
-            </Link>
-            <Link 
-              href="/disturbi-alimentari-dna" 
-              className="px-3 py-1.5 rounded-full text-xs font-semibold text-plum bg-plum/10 hover:bg-plum/20 transition-all border border-plum/20 flex items-center gap-1"
-            >
-              <span>DCA / DNA 💜</span>
-            </Link>
-            <Link 
-              href="/#prenota" 
-              className="btn-primary text-xs px-4 py-2"
-            >
-              Prenota una Visita
-            </Link>
+            <Link href="/#metodo" className="nav-link">Il Mio Metodo</Link>
+            <Link href="/#servizi" className="nav-link">Servizi</Link>
+            <Link href="/#tariffe" className="nav-link">Tariffe</Link>
+            <Link href="/#recensioni" className="nav-link">Recensioni</Link>
+            <Link href="/#prenota" className="btn-primary">Prenota una Visita</Link>
           </nav>
 
           {/* Mobile menu button */}
-          <div className="lg:hidden">
+          <div className="md:hidden">
             <button 
               className="text-plum"
               aria-label="Apri menu di navigazione"
               aria-expanded={isMenuOpen}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
+              style={{ color: 'var(--plum)' }}
             >
               <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"
@@ -114,45 +90,16 @@ export default function DimagrimentoRicomposizionePage() {
         {isMenuOpen && (
           <div style={{
             background: 'var(--ivory)',
-            borderTop: '1px solid rgba(184, 150, 90, 0.2)',
+            borderTop: '1px solid var(--border)',
             padding: '1.5rem 1.5rem 2rem'
           }}>
             <nav style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               <Link href="/" className="nav-link" onClick={() => setIsMenuOpen(false)}>Home</Link>
               <Link href="/#chi-sono" className="nav-link" onClick={() => setIsMenuOpen(false)}>Chi Sono</Link>
-              <Link 
-                href="/dimagrimento-ricomposizione" 
-                className="font-semibold text-white bg-gold p-2.5 rounded-xl flex items-center justify-between shadow-xs"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <span>Dimagrimento & Aumento Peso</span>
-                <span>✨</span>
-              </Link>
-              <Link 
-                href="/nutrizione-clinica" 
-                className="font-semibold text-[#1C6B4D] bg-[#1C6B4D]/10 p-2.5 rounded-xl border border-[#1C6B4D]/20 flex items-center justify-between"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <span>Nutrizione Clinica & Patologie</span>
-                <span>🩺</span>
-              </Link>
-              <Link 
-                href="/nutrizione-sportiva" 
-                className="font-semibold text-[#0052FF] bg-[#0052FF]/10 p-2.5 rounded-xl border border-[#0052FF]/20 flex items-center justify-between"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <span>Nutrizione Sportiva & Performance</span>
-                <span>⚡</span>
-              </Link>
-              <Link 
-                href="/disturbi-alimentari-dna" 
-                className="font-semibold text-plum bg-plum/10 p-2.5 rounded-xl border border-plum/20 flex items-center justify-between"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <span>Nutrizione per i DNA (DCA)</span>
-                <span>💜</span>
-              </Link>
+              <Link href="/#metodo" className="nav-link" onClick={() => setIsMenuOpen(false)}>Il Mio Metodo</Link>
+              <Link href="/#servizi" className="nav-link" onClick={() => setIsMenuOpen(false)}>Servizi</Link>
               <Link href="/#tariffe" className="nav-link" onClick={() => setIsMenuOpen(false)}>Tariffe</Link>
+              <Link href="/#recensioni" className="nav-link" onClick={() => setIsMenuOpen(false)}>Recensioni</Link>
               <Link 
                 href="/#prenota" 
                 className="btn-primary text-center"
@@ -169,31 +116,24 @@ export default function DimagrimentoRicomposizionePage() {
       <main>
         {/* HERO SECTION */}
         <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden"
-          style={{ background: 'linear-gradient(180deg, #FDFBF7 0%, #FFFFFF 100%)' }}>
+          style={{ background: 'linear-gradient(180deg, var(--cream) 0%, var(--ivory) 100%)' }}>
           
-          {/* Subtle Gold Glow */}
-          <div className="absolute top-10 right-10 w-96 h-96 rounded-full blur-3xl pointer-events-none opacity-20"
-            style={{ background: 'radial-gradient(circle, #B8965A 0%, transparent 70%)' }} />
-          <div className="absolute bottom-0 left-10 w-80 h-80 rounded-full blur-3xl pointer-events-none opacity-15"
-            style={{ background: 'radial-gradient(circle, #6B3E52 0%, transparent 70%)' }} />
-
           <div className="container mx-auto px-6 relative z-10">
             <div className="grid lg:grid-cols-12 gap-12 items-center">
               
               {/* Text Left */}
               <div className="lg:col-span-7 space-y-6">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider text-charcoal bg-gold/15 border border-gold/30">
-                  <span>✨</span>
-                  <span>Gestione del Peso Corporeo & Salute Terapeutica</span>
-                </div>
+                <span className="eyebrow">
+                  Gestione del Peso Corporeo & Salute Terapeutica
+                </span>
 
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight text-gray-900"
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight text-[var(--charcoal)]"
                   style={{ fontFamily: 'var(--font-display)', letterSpacing: '-0.02em' }}>
                   Dimagrimento, Ricomposizione e Aumento Peso.<br />
-                  <span className="text-gold">Un percorso sostenibile, costruito su di te.</span>
+                  <span className="text-gradient">Un percorso sostenibile, costruito su di te.</span>
                 </h1>
 
-                <div className="space-y-4 text-base sm:text-lg text-gray-700 leading-relaxed max-w-2xl font-normal">
+                <div className="space-y-4 text-base sm:text-lg text-[var(--muted)] leading-relaxed max-w-2xl font-normal">
                   <p>
                     La gestione del peso corporeo — che si tratti di ridurre la massa grassa preservando quella magra o di recuperare peso e forza in modo sano — rappresenta un intervento fondamentale per la salute e la qualità della vita.
                   </p>
@@ -205,15 +145,15 @@ export default function DimagrimentoRicomposizionePage() {
                 <div className="pt-4 flex flex-wrap gap-4 items-center">
                   <Link 
                     href="/#prenota" 
-                    className="btn-primary shadow-lg flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold"
+                    className="btn-primary"
                   >
                     <span>Prenota la tua visita in studio</span>
-                    <span>→</span>
+                    <span className="arrow-nudge">→</span>
                   </Link>
 
                   <a 
                     href="#dimagrimento" 
-                    className="px-6 py-3.5 rounded-xl font-semibold text-charcoal bg-gold/10 hover:bg-gold/20 transition-all duration-200 border border-gold/30"
+                    className="btn-ghost"
                   >
                     Scopri i percorsi ↓
                   </a>
@@ -230,14 +170,14 @@ export default function DimagrimentoRicomposizionePage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                   
-                  <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-gold/30 shadow-xl">
+                  <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-[var(--border)] shadow-xl">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-gold text-white flex items-center justify-center font-bold text-lg shrink-0">
-                        ✨
+                      <div className="w-10 h-10 rounded-full bg-[var(--plum)] text-white flex items-center justify-center font-bold text-xs shrink-0">
+                        PESO
                       </div>
                       <div>
-                        <div className="font-bold text-sm text-gray-900">Risultati Sostenibili</div>
-                        <div className="text-xs text-gray-600">Preservazione della massa magra e vitalità</div>
+                        <div className="font-bold text-sm text-[var(--charcoal)]">Risultati Sostenibili</div>
+                        <div className="text-xs text-[var(--muted)]">Preservazione della massa magra e vitalità</div>
                       </div>
                     </div>
                   </div>
@@ -265,14 +205,14 @@ export default function DimagrimentoRicomposizionePage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60" />
                   
-                  <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-gold/30 shadow-xl">
+                  <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-[var(--border)] shadow-xl">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-gold text-white flex items-center justify-center font-bold text-lg shrink-0">
-                        ⚖️
+                      <div className="w-10 h-10 rounded-full bg-[var(--plum)] text-white flex items-center justify-center font-bold text-xs shrink-0">
+                        BIA
                       </div>
                       <div>
-                        <div className="font-bold text-sm text-gray-900">Perdita Grasso & Massa Magra</div>
-                        <div className="text-xs text-gray-600">Intervento terapeutico per la salute generale</div>
+                        <div className="font-bold text-sm text-[var(--charcoal)]">Perdita Grasso & Massa Magra</div>
+                        <div className="text-xs text-[var(--muted)]">Intervento terapeutico per la salute generale</div>
                       </div>
                     </div>
                   </div>
@@ -281,15 +221,15 @@ export default function DimagrimentoRicomposizionePage() {
 
               {/* Content Right */}
               <div className="lg:col-span-7 space-y-6 order-1 lg:order-2">
-                <span className="inline-block text-xs font-semibold uppercase tracking-wider text-charcoal bg-gold/15 px-3.5 py-1.5 rounded-full border border-gold/30">
+                <span className="eyebrow">
                   Percorso 1
                 </span>
 
-                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 font-display" style={{ fontFamily: 'var(--font-display)', letterSpacing: '-0.01em' }}>
+                <h2 className="text-3xl sm:text-4xl font-bold text-[var(--charcoal)] font-display" style={{ fontFamily: 'var(--font-display)', letterSpacing: '-0.01em' }}>
                   Dimagrimento e Ricomposizione Corporea
                 </h2>
 
-                <div className="space-y-4 text-base sm:text-lg text-gray-700 leading-relaxed font-normal">
+                <div className="space-y-4 text-base sm:text-lg text-[var(--muted)] leading-relaxed font-normal">
                   <p>
                     In ambito clinico, la gestione del peso corporeo è spesso un tassello fondamentale nel percorso di cura, soprattutto quando si convive con condizioni come sovrappeso, obesità, sindrome metabolica, prediabete o dislipidemia. In questi casi, perdere peso — o più precisamente <strong>ridurre la massa grassa mantenendo quella muscolare</strong> — non è solo un obiettivo estetico, ma un intervento terapeutico che ha un impatto diretto e misurabile sul controllo glicemico, sul profilo lipidico, sulla pressione arteriosa e sulla salute cardiovascolare generale.
                   </p>
@@ -299,7 +239,7 @@ export default function DimagrimentoRicomposizionePage() {
                   </p>
                 </div>
 
-                <div className="p-5 rounded-2xl bg-[#FDFBF7] border-l-4 border-gold text-sm text-gray-800 leading-relaxed shadow-sm">
+                <div className="p-5 rounded-2xl bg-[var(--ivory)] border-l-4 border-[var(--plum)] text-sm text-[var(--ink)] leading-relaxed shadow-sm">
                   <strong>Zero restrizioni estreme, obiettivi realistici:</strong> So bene quanto i percorsi di dimagrimento possano essere stati, in passato, fonte di frustrazione o fallimenti ripetuti: per questo il mio approccio punta sempre a obiettivi realistici, graduali e mantenibili nel tempo, evitando restrizioni eccessive che nel lungo periodo si rivelano controproducenti. Come sempre, il lavoro procede in coordinamento con il medico o lo specialista che ti segue, per un percorso sicuro ed efficace.
                 </div>
               </div>
@@ -311,22 +251,22 @@ export default function DimagrimentoRicomposizionePage() {
 
 
         {/* FEATURE 2: AUMENTO DI PESO & RECUPERO PONDERALE */}
-        <section className="py-24 bg-gradient-to-b from-white via-[#F9F6F0] to-white relative overflow-hidden">
+        <section className="py-24 bg-gradient-to-b from-white via-[var(--cream)] to-white relative overflow-hidden">
           <div className="container mx-auto px-6 relative z-10 space-y-16">
             
             <div className="grid lg:grid-cols-12 gap-12 items-center reveal">
               
               {/* Content Left */}
               <div className="lg:col-span-7 space-y-6">
-                <span className="inline-block text-xs font-semibold uppercase tracking-wider text-charcoal bg-gold/15 px-3.5 py-1.5 rounded-full border border-gold/30">
+                <span className="eyebrow">
                   Percorso 2
                 </span>
 
-                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 font-display" style={{ fontFamily: 'var(--font-display)', letterSpacing: '-0.01em' }}>
+                <h2 className="text-3xl sm:text-4xl font-bold text-[var(--charcoal)] font-display" style={{ fontFamily: 'var(--font-display)', letterSpacing: '-0.01em' }}>
                   Aumento di Peso e Recupero Ponderale
                 </h2>
 
-                <div className="space-y-4 text-base sm:text-lg text-gray-700 leading-relaxed font-normal">
+                <div className="space-y-4 text-base sm:text-lg text-[var(--muted)] leading-relaxed font-normal">
                   <p>
                     Non sempre la sfida clinica riguarda il dimagrimento: esistono altrettante situazioni in cui l'obiettivo è, al contrario, <strong>recuperare peso in modo sano ed efficace</strong>. Sottopeso, malnutrizione, calo ponderale involontario legato a patologie acute o croniche, periodi di convalescenza post-chirurgica, o difficoltà ad alimentarsi adeguatamente a causa di terapie oncologiche o altre condizioni impegnative: sono tutte situazioni che richiedono un intervento nutrizionale mirato, spesso urgente, per evitare che la perdita di peso comprometta ulteriormente lo stato di salute generale.
                   </p>
@@ -336,11 +276,11 @@ export default function DimagrimentoRicomposizionePage() {
                   </p>
                 </div>
 
-                <div className="p-5 rounded-2xl bg-white border border-gold/30 text-sm text-gray-800 leading-relaxed shadow-sm space-y-2">
-                  <div className="font-bold text-gray-900 text-base flex items-center gap-2">
-                    <span className="text-gold font-bold">💪</span> Recuperare forza, energie e massa magra
+                <div className="p-5 rounded-2xl bg-white border border-[var(--border)] text-sm text-[var(--ink)] leading-relaxed shadow-sm space-y-2">
+                  <div className="font-bold text-[var(--charcoal)] text-base flex items-center gap-2">
+                    <span className="text-[var(--plum)] font-bold">✓</span> Recuperare forza, energie e massa magra
                   </div>
-                  <p className="text-xs text-gray-600 leading-relaxed">
+                  <p className="text-xs text-[var(--muted)] leading-relaxed">
                     L'obiettivo non è semplicemente "far ingrassare", ma recuperare massa magra, forza e energie, sostenendo il sistema immunitario e la capacità dell'organismo di affrontare la cura o la fase di recupero in corso. Anche qui, il percorso viene sempre costruito in stretta collaborazione con il medico curante o l'équipe specialistica, per garantire un intervento nutrizionale sicuro, efficace e realmente integrato.
                   </p>
                 </div>
@@ -356,14 +296,14 @@ export default function DimagrimentoRicomposizionePage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60" />
                   
-                  <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-gold/30 shadow-xl">
+                  <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-[var(--border)] shadow-xl">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-gold text-white flex items-center justify-center font-bold text-lg shrink-0">
-                        🌱
+                      <div className="w-10 h-10 rounded-full bg-[var(--plum)] text-white flex items-center justify-center font-bold text-xs shrink-0">
+                        REC
                       </div>
                       <div>
-                        <div className="font-bold text-sm text-gray-900">Recupero Strategico</div>
-                        <div className="text-xs text-gray-600">Apporto calorico e proteico mirato e sostenibile</div>
+                        <div className="font-bold text-sm text-[var(--charcoal)]">Recupero Strategico</div>
+                        <div className="text-xs text-[var(--muted)]">Apporto calorico e proteico mirato e sostenibile</div>
                       </div>
                     </div>
                   </div>
@@ -378,7 +318,7 @@ export default function DimagrimentoRicomposizionePage() {
 
         {/* CALL TO ACTION BANNER */}
         <section className="py-16 relative overflow-hidden"
-          style={{ background: 'linear-gradient(135deg, #4A3A2C 0%, #6B543E 50%, #382A1E 100%)' }}>
+          style={{ background: 'linear-gradient(135deg, var(--plum) 0%, var(--plum-mid) 100%)' }}>
           
           <div className="container mx-auto px-6 text-center text-white relative z-10 max-w-3xl">
             <span className="inline-block text-xs font-semibold uppercase tracking-wider bg-white/20 text-white px-3.5 py-1.5 rounded-full mb-4 backdrop-blur-sm border border-white/30">
@@ -396,7 +336,7 @@ export default function DimagrimentoRicomposizionePage() {
             <div className="flex flex-wrap justify-center gap-4">
               <Link 
                 href="/#prenota" 
-                className="px-8 py-4 rounded-xl font-bold bg-white text-[#4A3A2C] shadow-2xl hover:bg-gray-100 transition-all duration-300 hover:scale-[1.03]"
+                className="px-8 py-4 rounded-xl font-bold bg-white text-[var(--plum)] shadow-2xl hover:bg-gray-100 transition-all duration-300 hover:scale-[1.03]"
               >
                 Prenota la Visita in Studio
               </Link>
@@ -450,10 +390,7 @@ export default function DimagrimentoRicomposizionePage() {
                   ['/','Home'],
                   ['/#chi-sono','Chi Sono'],
                   ['/#metodo','Il Mio Metodo'],
-                  ['/dimagrimento-ricomposizione','Dimagrimento & Peso ✨'],
-                  ['/nutrizione-clinica','Nutrizione Clinica 🩺'],
-                  ['/nutrizione-sportiva','Nutrizione Sportiva ⚡'],
-                  ['/disturbi-alimentari-dna','Nutrizione per i DNA 💜'],
+                  ['/#servizi','Servizi'],
                   ['/#tariffe','Tariffe'],
                   ['/#contatti','Contatti']
                 ].map(([href, label]) => (
@@ -462,7 +399,7 @@ export default function DimagrimentoRicomposizionePage() {
                     textDecoration: 'none',
                     transition: 'color 200ms ease'
                   }}
-                  onMouseEnter={e => (e.currentTarget.style.color = '#B8965A')}
+                  onMouseEnter={e => (e.currentTarget.style.color = 'var(--gold)')}
                   onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.55)')}>
                     {label}
                   </Link>
