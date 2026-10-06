@@ -129,6 +129,15 @@ export default function PricingSection({ onSelectService }: PricingSectionProps)
                     <span>→</span>
                   </Link>
                 )}
+                {service.id === 'dca-equilibrio' && (
+                  <Link
+                    href="/disturbi-alimentari-dna"
+                    className="w-full py-2.5 px-3 rounded-xl font-semibold text-xs text-white bg-plum hover:bg-plum-dark transition-all flex items-center justify-center gap-1.5 shadow-sm"
+                  >
+                    <span>💜 Scopri il Percorso DNA</span>
+                    <span>→</span>
+                  </Link>
+                )}
                 <button
                   type="button"
                   onClick={() => handleSelectService(service.id)}

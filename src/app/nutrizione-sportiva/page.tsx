@@ -59,11 +59,17 @@ export default function NutrizioneSportivaPage() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center" style={{ gap: '2rem' }}>
+          <nav className="hidden md:flex items-center" style={{ gap: '1.5rem' }}>
             <Link href="/" className="nav-link">Home</Link>
             <Link href="/#chi-sono" className="nav-link">Chi Sono</Link>
-            <Link href="/#metodo" className="nav-link">Il Mio Metodo</Link>
             <Link href="/#servizi" className="nav-link">Servizi</Link>
+            <Link 
+              href="/disturbi-alimentari-dna" 
+              className="px-3 py-1.5 rounded-full text-xs font-semibold text-plum bg-plum/10 hover:bg-plum/20 transition-all border border-plum/20 flex items-center gap-1"
+            >
+              <span>Percorso DNA</span>
+              <span>💜</span>
+            </Link>
             <Link href="/#tariffe" className="nav-link">Tariffe</Link>
             <Link 
               href="/#prenota" 
@@ -100,8 +106,15 @@ export default function NutrizioneSportivaPage() {
             <nav style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               <Link href="/" className="nav-link" onClick={() => setIsMenuOpen(false)}>Home</Link>
               <Link href="/#chi-sono" className="nav-link" onClick={() => setIsMenuOpen(false)}>Chi Sono</Link>
-              <Link href="/#metodo" className="nav-link" onClick={() => setIsMenuOpen(false)}>Il Mio Metodo</Link>
               <Link href="/#servizi" className="nav-link" onClick={() => setIsMenuOpen(false)}>Servizi</Link>
+              <Link 
+                href="/disturbi-alimentari-dna" 
+                className="font-semibold text-plum bg-plum/10 p-2.5 rounded-xl border border-plum/20 flex items-center justify-between"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <span>Nutrizione per i DNA (DCA)</span>
+                <span>💜</span>
+              </Link>
               <Link href="/#tariffe" className="nav-link" onClick={() => setIsMenuOpen(false)}>Tariffe</Link>
               <Link 
                 href="/#prenota" 

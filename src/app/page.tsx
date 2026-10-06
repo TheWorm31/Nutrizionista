@@ -330,7 +330,7 @@ export default function HomePage() {
           </a>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center" style={{ gap: '1.75rem' }}>
+          <nav className="hidden md:flex items-center" style={{ gap: '1.5rem' }}>
             <a href="#chi-sono" className="nav-link">Chi Sono</a>
             <a href="#metodo" className="nav-link">Il Mio Metodo</a>
             <a href="#servizi" className="nav-link">Servizi</a>
@@ -338,8 +338,15 @@ export default function HomePage() {
               href="/nutrizione-sportiva" 
               className="px-3 py-1.5 rounded-full text-xs font-semibold text-[#0052FF] bg-[#0052FF]/10 hover:bg-[#0052FF]/20 transition-all border border-[#0052FF]/20 flex items-center gap-1"
             >
-              <span>Nutrizione Sportiva</span>
+              <span>Sportiva</span>
               <span>⚡</span>
+            </Link>
+            <Link 
+              href="/disturbi-alimentari-dna" 
+              className="px-3 py-1.5 rounded-full text-xs font-semibold text-plum bg-plum/10 hover:bg-plum/20 transition-all border border-plum/20 flex items-center gap-1"
+            >
+              <span>Percorso DNA</span>
+              <span>💜</span>
             </Link>
             <a href="#tariffe" className="nav-link">Tariffe</a>
             <a href="#recensioni" className="nav-link">Recensioni</a>
@@ -379,6 +386,14 @@ export default function HomePage() {
               >
                 <span>Nutrizione Sportiva & Performance</span>
                 <span>⚡</span>
+              </Link>
+              <Link 
+                href="/disturbi-alimentari-dna" 
+                className="font-semibold text-plum bg-plum/10 p-2.5 rounded-xl border border-plum/20 flex items-center justify-between"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <span>Nutrizione per i DNA (DCA)</span>
+                <span>💜</span>
               </Link>
               <a href="#tariffe" className="nav-link" onClick={() => setIsMenuOpen(false)}>Tariffe</a>
               <a href="#recensioni" className="nav-link" onClick={() => setIsMenuOpen(false)}>Recensioni</a>
@@ -725,10 +740,12 @@ La mia passione per lo sport nasce anche dall'esperienza personale: mi alleno re
                   linkText: 'Scopri i 4 percorsi sportivi ⚡'
                 },
                 {
-                  title: 'Nutrizione per disturbi del comportamento alimentare',
-                  desc: 'Ritrovare un equilibrio con l’alimentazione.',
-                  icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />,
-                  delay: 'reveal-delay-3'
+                  title: 'Nutrizione per i DNA (Disturbi Alimentari)',
+                  desc: 'Ritrovare un equilibrio con l’alimentazione attraverso un approccio accogliente e multidisciplinare.',
+                  icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />,
+                  delay: 'reveal-delay-3',
+                  href: '/disturbi-alimentari-dna',
+                  linkText: 'Scopri il percorso DNA 💜'
                 },
               ].map(service => (
                 <div key={service.title} className={`service-card reveal ${service.delay}`}>
@@ -747,7 +764,11 @@ La mia passione per lo sport nasce anche dall'esperienza personale: mi alleno re
                     {service.desc}
                   </p>
                   {service.href ? (
-                    <Link href={service.href} className="font-semibold text-xs text-[#0052FF] bg-[#0052FF]/10 py-2.5 px-3.5 rounded-xl flex items-center justify-center gap-1.5 hover:bg-[#0052FF]/20 transition-all border border-[#0052FF]/20 shadow-xs">
+                    <Link href={service.href} className={`font-semibold text-xs py-2.5 px-3.5 rounded-xl flex items-center justify-center gap-1.5 transition-all border shadow-xs ${
+                      service.href === '/disturbi-alimentari-dna' 
+                        ? 'text-plum bg-plum/10 hover:bg-plum/20 border-plum/20' 
+                        : 'text-[#0052FF] bg-[#0052FF]/10 hover:bg-[#0052FF]/20 border-[#0052FF]/20'
+                    }`}>
                       <span>{service.linkText}</span> <span className="arrow-nudge">→</span>
                     </Link>
                   ) : (
