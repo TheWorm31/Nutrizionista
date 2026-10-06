@@ -733,10 +733,12 @@ La mia passione per lo sport nasce anche dall'esperienza personale: mi alleno re
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
                 {
-                  title: 'Dimagrimento e Ricomposizione',
-                  desc: 'Perdita peso in modo sostenibile.',
+                  title: 'Dimagrimento & Ricomposizione',
+                  desc: 'Perdita massa grassa sostenibile, ricomposizione corporea e aumento di peso terapeutico.',
                   icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />,
-                  delay: ''
+                  delay: '',
+                  href: '/dimagrimento-ricomposizione',
+                  linkText: 'Scopri il percorso peso ✨'
                 },
                 {
                   title: 'Nutrizione Clinica & Patologie',
@@ -784,6 +786,8 @@ La mia passione per lo sport nasce anche dall'esperienza personale: mi alleno re
                         ? 'text-plum bg-plum/10 hover:bg-plum/20 border-plum/20' 
                         : service.href === '/nutrizione-clinica'
                         ? 'text-[#1C6B4D] bg-[#1C6B4D]/10 hover:bg-[#1C6B4D]/20 border-[#1C6B4D]/20'
+                        : service.href === '/dimagrimento-ricomposizione'
+                        ? 'text-charcoal bg-gold/15 hover:bg-gold/25 border-gold/30'
                         : 'text-[#0052FF] bg-[#0052FF]/10 hover:bg-[#0052FF]/20 border-[#0052FF]/20'
                     }`}>
                       <span>{service.linkText}</span> <span className="arrow-nudge">→</span>
